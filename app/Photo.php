@@ -6,7 +6,7 @@
  * Time: 15:59
  */
 
-namespace App;
+namespace App\Providers;
 
 
 use Illuminate\Database\Eloquent\Model;
@@ -42,5 +42,6 @@ class Photo extends Model
         return $this->belongsToMany('App\Providers\Users','App\Providers\Like','id_photos','id_users');
 
     }
+
 
 }
