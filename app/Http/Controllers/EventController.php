@@ -14,6 +14,7 @@ class EventController extends Controller
 {
     public function index()
     {
+
     }
 
     public function create(Request $request)
