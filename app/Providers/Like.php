@@ -3,17 +3,17 @@
  * Created by PhpStorm.
  * User: Nicolas local
  * Date: 10/04/2018
- * Time: 09:30
+ * Time: 09:29
  */
 
-namespace App;
+namespace App\Providers;
 
 
 use Illuminate\Database\Eloquent\Model;
 
-class Contain extends Model
+class Like extends Model
 {
 
-    protected $primaryKey = 'id_contains';
+    protected $primaryKey = 'id_likes';
 
 }
