@@ -9,11 +9,23 @@
 namespace App\Providers;
 
 
+
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
 
     protected $primaryKey = 'id_comments';
+
+    public function photos()
+    {
+        return $this->belongsTo('App\Photo');
+    }
+
+    public function users()
+    {
+        return $this->belongsTo('App\User');
+    }
+
 
 }
