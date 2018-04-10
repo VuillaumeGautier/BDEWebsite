@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Test');
 });
 
 Route::get('/galerie', function(){ return redirect('/galerie'); });
@@ -65,7 +65,6 @@ Route::get('/add/{id}',[
     'uses' => 'CartController@getAddOne',
     'as' => 'product.addOne'
 ]);*/
-
 
 
 Route::get('/events', 'EventController@index');
