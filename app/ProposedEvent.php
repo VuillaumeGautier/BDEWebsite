@@ -18,13 +18,13 @@ class ProposedEvent extends Model
 
     function isProposed(){
 
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Providers\User','id_users','proposed_events');
 
     }
 
     function isVoted(){
 
-        return $this->belongsToMany('App\User','App\Vote','id_proposed_events','id_users');
+        return $this->belongsToMany('App\Providers\User','App\Providers\Vote','id_proposed_events','id_users');
 
     }
 

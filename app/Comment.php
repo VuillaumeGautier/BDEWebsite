@@ -19,12 +19,12 @@ class Comment extends Model
 
     public function photos()
     {
-        return $this->belongsTo('App\Photo');
+        return $this->belongsTo('App\Providers\Photo','id_photos','id_comments');
     }
 
     public function users()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Providers\User','id_users','id_users');
     }
 
 

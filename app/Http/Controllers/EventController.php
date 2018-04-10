@@ -9,11 +9,16 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Providers\Comment;
 
 class EventController extends Controller
 {
     public function index()
     {
+
+        $com = Comment::find(1);
+
+        echo $com->content;
 
     }
 

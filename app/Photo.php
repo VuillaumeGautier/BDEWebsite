@@ -19,27 +19,27 @@ class Photo extends Model
     function comments()
     {
 
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Providers\Comment','id_comments','id_photos');
 
     }
 
     function events(){
 
-        return $this->belongsTo('App\Event');
+        return $this->belongsTo('App\Providers\Event','id_events','id_photos');
 
 
     }
 
     function users(){
 
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Providers\User','id_users','id_photos');
 
     }
 
     function isLike(){
 
 
-        return $this->belongsToMany('App\Users','App\Like','id_photos','id_users');
+        return $this->belongsToMany('App\Providers\Users','App\Providers\Like','id_photos','id_users');
 
     }
 

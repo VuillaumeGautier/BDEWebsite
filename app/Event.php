@@ -18,20 +18,20 @@ class Event extends Model
 
     function photos(){
 
-        return $this->hasMany('App\Photo');
+        return $this->hasMany('App\Providers\Photo','id_photos','id_events');
 
 
     }
 
     function isCreate(){
 
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Providers\User','id_users','id_events');
 
     }
 
     function hasUsers(){
 
-        return $this->belongsToMany('App\User','App\Participate','id_events','id_users');
+        return $this->belongsToMany('App\Providers\User','App\Providers\Participate','id_events','id_users');
 
     }
 
