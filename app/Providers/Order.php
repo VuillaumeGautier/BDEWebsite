@@ -19,7 +19,7 @@ class Order extends Model
     function products(){
 
 
-        return $this->belongsToMany('App\Providers\Product','App\Providers\Contain','id_orders','id_products');
+        return $this->belongsToMany('App\Providers\Product','contains','id_orders','id_products');
 
 
     }

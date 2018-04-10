@@ -10,6 +10,8 @@ namespace App\Providers;
 
 
 use Illuminate\Database\Eloquent\Model;
+use App\Providers\User;
+
 
 class Photo extends Model
 {
@@ -39,7 +41,7 @@ class Photo extends Model
     function isLike(){
 
 
-        return $this->belongsToMany('App\Providers\Users','App\Providers\Like','id_photos','id_users');
+        return $this->belongsToMany('App\Providers\User','likes','id_photos','id_users');
 
     }
 

@@ -10,6 +10,7 @@ namespace App\Providers;
 
 
 use Illuminate\Database\Eloquent\Model;
+use App\Providers\Event;
 
 class User extends Model
 {
@@ -31,7 +32,7 @@ class User extends Model
 
     function likePhotos(){
 
-        return $this->belongsToMany('App\Providers\Photo','App\Providers\Like','id_users','id_photos');
+        return $this->belongsToMany('App\Providers\Photo','likes','id_users','id_photos');
 
     }
 
@@ -43,7 +44,7 @@ class User extends Model
 
     function participateEvent(){
 
-        return $this->belongsToMany('App\Providers\Event','App\Providers\Participate','id_users','id_events');
+        return $this->belongsToMany('App\Providers\Event','participate','id_users','id_events');
 
     }
 
@@ -55,7 +56,7 @@ class User extends Model
 
     function vote(){
 
-        return $this->belongsToMany('App\Providers\ProposedEvent','App\Providers\Vote','id_users','id_proposed_events');
+        return $this->belongsToMany('App\Providers\ProposedEvent','vote','id_users','id_proposed_events');
 
     }
 

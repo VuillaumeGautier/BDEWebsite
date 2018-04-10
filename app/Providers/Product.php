@@ -18,7 +18,7 @@ class Product extends Model
 
     function orders(){
 
-        return $this->belongsToMany('App\Providers\Order','App\Providers\Contain','id_products','id_orders');
+        return $this->belongsToMany('App\Providers\Order','contains','id_products','id_orders');
 
     }
 

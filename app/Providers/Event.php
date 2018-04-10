@@ -10,11 +10,13 @@ namespace App\Providers;
 
 
 use Illuminate\Database\Eloquent\Model;
+use App\Providers\User;
 
 class Event extends Model
 {
 
     protected $primaryKey = 'id_events';
+    protected $table = 'events';
 
     function photos(){
 
@@ -31,7 +33,7 @@ class Event extends Model
 
     function hasUsers(){
 
-        return $this->belongsToMany('App\Providers\User','App\Providers\Participate','id_events','id_users');
+        return $this->belongsToMany('App\Providers\User','participate','id_events','id_users');
 
     }
 
