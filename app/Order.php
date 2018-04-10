@@ -16,4 +16,20 @@ class Order extends Model
 
     protected $primaryKey = 'id_orders';
 
+    function products(){
+
+
+        return $this->belongsToMany('App\Product','App\Contain','id_orders','id_products');
+
+
+    }
+
+    function users(){
+
+        return $this->belongsTo('App\User');
+
+
+
+    }
+
 }
