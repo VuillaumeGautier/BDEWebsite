@@ -25,16 +25,15 @@ Route::get('/connexion', 'UserController@index');
 
 Route::get('/my-account', 'UserController@index');
 
+Route::post('/shop/products', 'CartController@sortedProducts');
+
 
 Auth::routes();
-
 
 
 Route::get('/home', 'HomeController@index');
 
 Route::post('/home', 'HomeController@update');
-
-
 
 
 Route::get('/shop', 'CartController@index');
