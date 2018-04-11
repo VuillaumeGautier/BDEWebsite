@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Utilisateur
- * Date: 09/04/2018
- * Time: 22:17
- */
 
 namespace App\Http\Controllers;
 
@@ -21,6 +15,7 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Show the application dashboard.
      *

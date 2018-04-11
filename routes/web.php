@@ -107,3 +107,6 @@ Route::group(['middleware' => ['auth']], function()
     // delete comment
     Route::post('comment/delete/{id}','EventController@distroy');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
