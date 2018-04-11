@@ -17,16 +17,15 @@ use App\Providers\Event;
 use Illuminate\Http\Request;
 
 
-
 class EventController extends Controller
 {
     public function index()
     {
 
 
-        $com = User::find(1)->comments()->each(function($book)
+        $com = Event::find(3)->photos()->each(function($book)
         {
-            echo $book->name, '<br>';
+            echo $book->mail, '<br>';
         });
 
 

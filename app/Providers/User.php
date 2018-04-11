@@ -11,6 +11,11 @@ namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Providers\Event;
+use App\Providers\Comment;
+use App\Providers\Photo;
+use App\Providers\Order;
+
+
 
 class User extends Model
 {

@@ -11,11 +11,16 @@ namespace App\Providers;
 
 
 use Illuminate\Database\Eloquent\Model;
+use App\Providers\User;
+use App\Providers\Photo;
 
 class Comment extends Model
 {
 
+
     protected $primaryKey = 'id_comments';
+    protected $table = 'comments';
+
 
     public function photos()
     {
