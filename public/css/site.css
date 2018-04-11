@@ -6,6 +6,27 @@ footer
 
 }
 
+#header-left
+{
+    background-color: #cc0000;
+    color: white;
+}
+
+#header-middle
+{
+    margin-top: 20px;
+    font-family: Lato;
+    background-color: #e2e3e5;
+    margin-top: 20px;
+}
+
+#header-right
+{
+    text-align: right;
+    background-color: #cc0000;
+    border-bottom: 2px solid #999999;
+}
+
 #footer-left
 {
     margin-top: 10px;
