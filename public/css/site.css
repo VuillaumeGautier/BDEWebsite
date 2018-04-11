@@ -11,6 +11,34 @@ header
     width: 100%;
 }
 
+#Descritpion
+{
+    margin-top: 1%;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+#Separation1
+{
+    border: 2px solid lightgrey;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+#Separation2
+{
+    border: 2px solid lightgrey;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+#Separation3
+{
+    border: 2px solid lightgrey;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
 #nav
 {
     background-color: #cc0000;

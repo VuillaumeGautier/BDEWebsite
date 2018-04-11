@@ -13,7 +13,7 @@
 
 <body>
 
-<header>
+<header class="row">
             <div class="col-sm-12" id="header-right">
                 <a title="Sign In" href="/connexion">Sign In</a> or <a title="Sign Up" href="/inscription">Sign Up</a>
             </div>
@@ -57,13 +57,53 @@
                     <div class="col-md-3" id="Shop">
                         <a class="nav-link" href="#"><h4><div class="Sh">Shop</div></h4></a>
                     </div>
-                </ul>
-            </ul>
         </nav>
     </div>
 
-
 </header>
+
+<section id="Descritpion">
+    Un bureau des étudiants (BDE) ou bureau des élèves, </br>
+    est une association étudiante d'une même université ou </br>
+    école, élue par leurs adhérents, et qui s'occupe d'organiser </br>
+    les activités extra-scolaires telles que des soirées étudiantes, </br>
+    l'accueil des nouveaux élèves, et diverses activités allant </br>
+    des rencontres sportives
+</section>
+
+<section id="Separation1">
+</section>
+
+<section id="Incoming">
+
+</section>
+
+<section id="Separation2">
+</section>
+
+<section id="Passed">
+
+</section>
+
+<section id="Separation3">
+</section>
+
+<section id="Best">
+
+</section>
+
+<footer class="row">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6" id="footer-left">
+                Legal Notice
+            </div>
+            <div class="col-sm-6" id="footer-right">
+                All rights to BDE Cesi.Exia Nancy
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 
