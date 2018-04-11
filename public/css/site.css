@@ -11,6 +11,49 @@ header
     width: 100%;
 }
 
+#nav
+{
+    background-color: #cc0000;
+    border-bottom: 2px solid #999999;
+    border-top: 2px solid #999999;
+    height: 50px;
+}
+
+#Shop
+{
+    margin-left: 2%;
+}
+
+#Home
+{
+    margin-left: 10px;
+}
+
+.Sh
+{
+    font-family: Lato;
+    color: white;
+    text-align: center;
+}
+
+.Eve
+{
+    font-family: Lato;
+    color: white;
+    margin-left: 50%;
+}
+.Ho
+{
+    font-family: Lato;
+    color: white;
+    text-align: center;
+}
+
+#middle
+{
+    background-color: #e2e3e5;
+}
+
 #logo
 {
     background-color: #e2e3e5;
@@ -18,14 +61,9 @@ header
 
 #BDE
 {
-    text-align: right;
-}
 
-#Nav
-{
-    border-bottom: 2px solid #999999;
-    border-top: 2px solid #999999;
-    background-color: #cc0000;
+    margin-top: 20%;
+    text-align: center;
 }
 
 #header-left

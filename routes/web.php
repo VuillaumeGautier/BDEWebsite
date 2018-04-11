@@ -29,12 +29,9 @@ Route::get('/my-account', 'UserController@index');
 Auth::routes();
 
 
-
 Route::get('/home', 'HomeController@index');
 
 Route::post('/home', 'HomeController@update');
-
-
 
 
 Route::get('/shop', 'CartController@index');
