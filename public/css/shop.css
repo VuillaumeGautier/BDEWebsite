@@ -1,0 +1,23 @@
+.prod-info{
+    text-align: center;
+    margin: 10%;
+    background-color: #CCCCCC;
+    padding-top: 10px;
+}
+
+.prod-photo{
+    height: auto;
+    width : 70%;
+    object-fit: contain;
+}
+
+#products{
+    text-align: center;
+}
+
+.product{
+    text-align: center;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

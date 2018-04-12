@@ -32,7 +32,7 @@ Route::get('/connexion', 'UserController@index');
 
 Route::get('/my-account', 'UserController@index');
 
-Route::get('/shop/products/{type}', 'CartController@sortedProducts');
+Route::get('/shop/products', 'CartController@sortedProducts');
 
 
 Auth::routes();
