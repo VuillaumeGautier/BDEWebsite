@@ -37,9 +37,11 @@ class CartController extends Controller
         }
 
         foreach ($products as $product){
-            $htmlAnswer = $htmlAnswer.'<div class="col-sm-12 col-md-6 col-lg-4">';
+            $htmlAnswer = $htmlAnswer."<div class='col-sm-12 col-md-6 col-lg-4'> <img class='prod-img' href ='$product->photo' alt='product img'>"
+            ."<div class='prod-name'>$product->name</div><div class='prod-price'>$product->price</div></div>";
         }
 
+        $htmlAnswer = $htmlAnswer."</div>";
         return $htmlAnswer;
     }
 
