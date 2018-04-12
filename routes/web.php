@@ -60,7 +60,7 @@ Route::get('/remove',[
 
 Route::get('/events', 'EventController@index');
 
-Route::post('/events', 'IdeaController@propose');
+Route::post('/proposedevent', 'IdeaController@propose');
 
 Route::get('/proposedevent', 'IdeaController@affichage');
 
