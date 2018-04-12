@@ -36,7 +36,7 @@ Route::get('/home', 'HomeController@index');
 Route::post('/home', 'HomeController@update');
 
 
-Route::get('/shop', 'CartController@index');
+Route::get('/shop', 'CartController@getBoutique');
 
 Route::get('/shop/basket', [
     'uses' => 'CartController@getCart',

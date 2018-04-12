@@ -1,11 +1,14 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
+    <title>Shop</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js%22%3E"></script>
 
 </head>
 <body>
+
+@include("header")
 
 <h1>Products</h1>
 
@@ -13,11 +16,12 @@
     Sort by <div>TYPE</div>
 </div>
 
-<div class="container">
+<div class="container" id="products">
 
 
 </div>
 
+@include("footer")
 
 </body>
 </html>
