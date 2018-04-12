@@ -75,7 +75,9 @@
 </section>
 
 <section id="Incoming">
+    <div class="LAN" id="LAN">
 
+    </div>
 </section>
 
 <section id="Separation2">
