@@ -27,7 +27,6 @@ Route::get('/my-account', 'UserController@index');
 
 Route::get('/shop/products', 'CartController@sortedProducts');
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -58,17 +57,6 @@ Route::get('/remove',[
     'uses' => 'CartController@getRemoveItem',
     'as' => 'product.remove'
 ]);
-
-/*Route::get('/reduce/{id}',[
-    'uses' => 'CartController@getReduceOne',
-    'as' => 'product.reduceOne'
-]);
-
-Route::get('/add/{id}',[
-    'uses' => 'CartController@getAddOne',
-    'as' => 'product.addOne'
-]);*/
-
 
 Route::get('/events', 'EventController@index');
 
@@ -105,5 +93,3 @@ Route::group(['middleware' => ['auth']], function()
     // delete comment
     Route::post('comment/delete/{id}','EventController@distroy');
 });
-
-Route::get('/home', 'HomeController@index')->name('home');
