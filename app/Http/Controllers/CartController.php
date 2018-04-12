@@ -23,26 +23,27 @@ class CartController extends Controller
         return view('shop');
     }
 
-    public function sortedProducts($type) {
+    public function sortedProducts() {
 
 
 
         $htmlAnswer = '<div class = "container" id="products">';
 
-        /*if($_POST["type"] =! "") {
+        if($_GET["type"] =! "none") {
             $products = Product::all()->where("type","=",$_POST["type"]);
         }
-        else{*/
+        else{
             $products = Product::all();
-        //}
+        }
 
         foreach ($products as $product){
-            $htmlAnswer = $htmlAnswer."<div class='col-sm-12 col-md-6 col-lg-4' style='background-image: url(\"../Pictures/products/$product->photo\")'>"
-            ."<div class='prod-name'>$product->name</div><div class='prod-price'>$product->price</div></div>";
+            $htmlAnswer = $htmlAnswer."<div class='col-sm-12 col-md-6 col-lg-4 product'><div class='prod-info'> <img src='../Pictures/products/mini_$product->photo' class='prod-photo' alt='Product photo' >"
+            ."<div class='prod-name'>$product->name</div><div class='prod-price'>$product->price</div></div></div>";
         }
 
         $htmlAnswer = $htmlAnswer."</div>";
-        return $htmlAnswer;
+        return response()->json($htmlAnswer);
+        //json(['html' => $htmlAnswer]);
     }
 
     public function create(Request $request){

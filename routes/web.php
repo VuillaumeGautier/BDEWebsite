@@ -19,13 +19,13 @@ Route::get('/galerie', function(){ return redirect('/galerie'); });
 
 Route::resource('/galerie', 'GalerieController');
 
-Route::get('/incription', 'UserController@index');
+Route::get('/inscription', 'UserController@index');
 
 Route::get('/connexion', 'UserController@index');
 
 Route::get('/my-account', 'UserController@index');
 
-Route::get('/shop/products/{type}', 'CartController@sortedProducts');
+Route::get('/shop/products', 'CartController@sortedProducts');
 
 
 Auth::routes();
