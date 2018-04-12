@@ -3,7 +3,9 @@
     <meta charset="utf-8">
     <title>Shop</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js%22%3E"></script>
+    <link rel="stylesheet" href="css/site.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -25,3 +27,23 @@
 
 </body>
 </html>
+
+
+<script>
+    $( document ).ready(function() {
+        /*var data = {"type":""};
+        $.ajax({
+            type: "POST",
+            url : "/shop/products",
+            dataType : "json",
+            data : JSON.stringify(data),
+            success : function (data, status) {
+                console.log(data);
+                //$("#products").
+            }
+        });*/
+        $.get( "/shop/products/", function( data ) {
+            console.log(data);
+        });
+    });
+</script>

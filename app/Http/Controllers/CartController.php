@@ -20,24 +20,24 @@ class CartController extends Controller
 
     public function getBoutique(){
 
-        return view('boutique');
+        return view('shop');
     }
 
-    public function sortedProducts() {
+    public function sortedProducts($type) {
 
 
 
-        $htmlAnswer = '<div class = "container">';
+        $htmlAnswer = '<div class = "container" id="products">';
 
-        if($_POST["type"] =! "") {
+        /*if($_POST["type"] =! "") {
             $products = Product::all()->where("type","=",$_POST["type"]);
         }
-        else{
+        else{*/
             $products = Product::all();
-        }
+        //}
 
         foreach ($products as $product){
-            $htmlAnswer = $htmlAnswer."<div class='col-sm-12 col-md-6 col-lg-4'> <img class='prod-img' href ='$product->photo' alt='product img'>"
+            $htmlAnswer = $htmlAnswer."<div class='col-sm-12 col-md-6 col-lg-4' style='background-image: url(\"../Pictures/products/$product->photo\")'>"
             ."<div class='prod-name'>$product->name</div><div class='prod-price'>$product->price</div></div>";
         }
 

@@ -15,5 +15,5 @@ class Like extends Model
 {
 
     protected $primaryKey = 'id_likes';
-
+    public $timestamps = false;
 }
