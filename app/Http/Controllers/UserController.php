@@ -19,7 +19,23 @@ class UserController
 {
 
 
+    function  inscriptionIndex() {
 
+    return view('inscription');
+
+
+
+    }
+
+    function inscription(){
+
+       echo $_POST['name'];
+       echo $_POST['fname'];
+       echo $_POST['email'];
+       echo $_POST['password'];
+
+
+    }
 
 
 
@@ -28,8 +44,5 @@ class UserController
 
 };
 
-$_POST['name'];
-$_POST['fname'];
-$_POST['email'];
-$_POST['password'];
+
 
