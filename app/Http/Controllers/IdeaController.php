@@ -1,8 +1,16 @@
 <?php
 namespace App\Http\Controllers;
+use App\Providers\Like;
+use Illuminate\Support\Facades\DB;
+use App\Providers\Comment;
+use App\Providers\Photo;
+use App\Providers\Contain;
+use App\Providers\User;
+use App\Providers\Event;
+use Illuminate\Http\Request;
+use App\Providers\ProposedEvent;
 
-
-class IdeaController{
+class IdeaController extends Controller{
 
     function propose()
 {

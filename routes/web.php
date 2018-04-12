@@ -11,15 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    $idee = new App\Providers\ProposedEvent;
-    $idee->name = request('Nom');
-    $idee->proposed_date = request('Date');
-    $idee->description = request('Description');
-
-    $idee->save();
-
-    return "Nous avons reçu votre email qui est" . request('Nom') . ' et votre mot de passe ' . request('Date');
+Route::get('/', function (){
+   return view('home');
 });
 
 Route::get('/galerie', function(){ return redirect('/galerie'); });
@@ -79,21 +72,9 @@ Route::get('/add/{id}',[
 
 Route::get('/events', 'EventController@index');
 
-Route::post('/inscription', function(){
-    $idee = new App\ideabox;
-    $idee->Nom = request('Nom');
-    $idee->Duree = request('Duree');
-    $idee->Prix = request('Prix');
-    $idee->Lieu = request('Lieu');
-    $idee->Date = request('Date');
-    $idee->Descritption = resquest('Description');
+Route::post('/events', 'IdeaController@propose');
 
-    $idee->save();
-
-    return "Nous avons reçu votre email qui est" . request('Nom') . ' et votre mot de passe ' . request('Duree');
-});
-
-Route::get('/events/idea', 'EventController@index');
+Route::get('/proposedevent', 'IdeaController@affichage');
 
 Route::get('/events/coming', 'EventController@index');
 

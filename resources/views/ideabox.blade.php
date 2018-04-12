@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Suggestion Box</title>
-</head>
-
-<body>
-
-<form method="POST" action="ListEvent.blade.php">
-    <label>Nom</label> : <input type="varchar" name="nom" /><br />
-    <label>Durée</label> : <input type="text" name="duree"  /><br />
-    <label>Prix</label> : <input type="double" min="0" name="prix"  /><br />
-    <label>Lieu</label> : <input type="text" name="lieu"  /><br />
-    <label>Date</label> : <input type="text" name="date" /><br />
-    <label>Description</label> : <input type="text" name="description" /><br />
+<form method="POST">
+    {{ csrf_field() }}
+    <label>Nom</label> : <input type="Nom" name="Nom" /><br />
+    <label>Date</label> : <input type="Date" name="Date" /><br />
+    <label>Description</label> : <input type="Description" name="Description" /><br />
     <input type="submit" value="Envoyer" />
-
 </form>
-
-</body>
-</html>
