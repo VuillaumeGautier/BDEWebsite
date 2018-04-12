@@ -41,7 +41,7 @@ Route::get('/shop/basket', [
     'as' => 'product.basket'
 ]);
 
-Route::get('/shop/product/{id}', 'CartController@display_product');
+Route::get('/shop/product/{id}', 'CartController@product');
 
 Route::get('/boutique', [
     'uses' => 'CartController@getBoutique',
