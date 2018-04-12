@@ -27,9 +27,9 @@
     @endforeach
 </div>
 
-<form>
-    <input type="button" value="Propose your Event" onclick="window.location.href='http://bdewebsite/ideabox'" />
-</form>
+<a href='http://bdewebsite/ideabox' >
+    <input type="button" value="Propose your Event"/>
+</a>
 
 @include("layouts.Footer")
 </body>
