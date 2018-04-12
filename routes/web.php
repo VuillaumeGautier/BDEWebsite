@@ -25,7 +25,7 @@ Route::get('/connexion', 'UserController@index');
 
 Route::get('/my-account', 'UserController@index');
 
-Route::post('/shop/products', 'CartController@sortedProducts');
+Route::get('/shop/products/{type}', 'CartController@sortedProducts');
 
 
 Auth::routes();
