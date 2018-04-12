@@ -17,7 +17,7 @@ class Photo extends Model
 {
 
     protected $primaryKey = 'id_photos';
-
+    public $timestamps = false;
     function comments()
     {
 

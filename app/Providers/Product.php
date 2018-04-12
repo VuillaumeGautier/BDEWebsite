@@ -15,6 +15,7 @@ class Product extends Model
 {
 
     protected $primaryKey = 'id_products';
+    public $timestamps = false;
 
     function orders(){
 

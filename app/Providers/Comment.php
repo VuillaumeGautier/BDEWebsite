@@ -20,7 +20,7 @@ class Comment extends Model
 
     protected $primaryKey = 'id_comments';
     protected $table = 'comments';
-
+    public $timestamps = false;
 
     public function photos()
     {

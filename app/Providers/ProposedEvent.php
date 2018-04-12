@@ -15,6 +15,7 @@ class ProposedEvent extends Model
 {
     protected $table = 'proposed_events';
     protected $primaryKey = 'id_proposed_events';
+    public $timestamps = false;
 
     function isProposed(){
 

@@ -15,5 +15,5 @@ class Contain extends Model
 {
 
     protected $primaryKey = 'id_contains';
-
+    public $timestamps = false;
 }

@@ -17,6 +17,7 @@ class Event extends Model
 
     protected $primaryKey = 'id_events';
     protected $table = 'events';
+    public $timestamps = false;
 
     function photos(){
 
