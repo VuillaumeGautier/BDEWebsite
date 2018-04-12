@@ -12,14 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('Test');
+    $idee = new App\Providers\ProposedEvent;
+    $idee->name = request('Nom');
+    $idee->proposed_date = request('Date');
+    $idee->description = request('Description');
+
+    $idee->save();
+
+    return "Nous avons reçu votre email qui est" . request('Nom') . ' et votre mot de passe ' . request('Date');
 });
 
 Route::get('/galerie', function(){ return redirect('/galerie'); });
 
 Route::resource('/galerie', 'GalerieController');
 
-Route::get('/incription', 'UserController@index');
+Route::get('/inscription', 'UserController@index');
 
 Route::get('/connexion', 'UserController@index');
 
@@ -29,7 +36,6 @@ Route::post('/shop/products', 'CartController@sortedProducts');
 
 
 Auth::routes();
-
 
 Route::get('/home', 'HomeController@index');
 
@@ -73,7 +79,19 @@ Route::get('/add/{id}',[
 
 Route::get('/events', 'EventController@index');
 
-Route::get('/events/idea/{id}', 'EventController@index');
+Route::post('/inscription', function(){
+    $idee = new App\ideabox;
+    $idee->Nom = request('Nom');
+    $idee->Duree = request('Duree');
+    $idee->Prix = request('Prix');
+    $idee->Lieu = request('Lieu');
+    $idee->Date = request('Date');
+    $idee->Descritption = resquest('Description');
+
+    $idee->save();
+
+    return "Nous avons reçu votre email qui est" . request('Nom') . ' et votre mot de passe ' . request('Duree');
+});
 
 Route::get('/events/idea', 'EventController@index');
 
@@ -106,6 +124,5 @@ Route::group(['middleware' => ['auth']], function()
     // delete comment
     Route::post('comment/delete/{id}','EventController@distroy');
 });
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-@include("header")
+@include("layouts.Header")
 
 <h1>Products</h1>
 
@@ -21,7 +21,7 @@
 
 </div>
 
-@include("footer")
+@include("layouts.Footer")
 
 </body>
 </html>
