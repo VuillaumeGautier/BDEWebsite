@@ -21,6 +21,7 @@ class User extends Model
 {
 
     protected $primaryKey = 'id_users';
+    public $timestamps = false;
 
     function comments()
     {

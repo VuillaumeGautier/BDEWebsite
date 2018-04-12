@@ -15,7 +15,7 @@ class Vote extends Model
 {
 
     protected $primaryKey = 'id_votes';
-
+    public $timestamps = false;
 
 
 }

@@ -9,7 +9,27 @@
 namespace App\Http\Controllers;
 
 
+
+
+
+
+
+
 class UserController
 {
 
-}
+
+
+
+
+
+
+
+
+};
+
+$_POST['name'];
+$_POST['fname'];
+$_POST['email'];
+$_POST['password'];
+

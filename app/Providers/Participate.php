@@ -16,5 +16,5 @@ class Participate extends Model
 
     protected $primaryKey = 'id_participate';
     protected $table = 'participate';
-
+    public $timestamps = false;
 }

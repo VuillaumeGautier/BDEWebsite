@@ -8,16 +8,13 @@
     <title> Sign in </title>
 
 
-
-
-
 </head>
 
 <body>
 
 <div class="col-lg-offset-4 col-lg-4 border">
 
-    <form method="post" action="#">
+    <form method="post" action="http://bdewebsite/inscription">
         <div class="form-group">
 
             <label for="Input">Name</label>
@@ -40,7 +37,7 @@
 
             <label for="Input">Email</label>
             <br>
-            <input type="text" class="form-group" id="input" name="email" placeholder="email" required>
+            <input type="email" class="form-group" id="input" name="email" placeholder="email" required autocomplete="on">
 
 
         </div>
@@ -50,7 +47,8 @@
 
             <label for="Input">Password</label>
             <br>
-            <input type="password" class="form-group" id="input" name="password" placeholder="password" required>
+            <input type="password" class="form-group" id="input" name="password" placeholder="password" required minlength="8"
+                   maxlength="25" autocomplete="on" >
 
 
         </div>
@@ -59,7 +57,8 @@
 
             <label for="Input">Password again</label>
             <br>
-            <input type="password" class="form-group" id="input" name="password" placeholder="password" required>
+            <input type="password" class="form-group" id="input" name="password" placeholder="password" required minlength="8"
+                   maxlength="25" autocomplete="on">
 
 
         </div>
