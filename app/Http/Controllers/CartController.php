@@ -29,11 +29,11 @@ class CartController extends Controller
 
         $htmlAnswer = '<div class = "container" id="products">';
 
-        if($_GET["type"] =! "none") {
-            $products = Product::all()->where("type","=",$_POST["type"]);
+        if($_GET["type"] == "none") {
+            $products = Product::all();
         }
         else{
-            $products = Product::all();
+            $products = Product::where("type",$_GET["type"])->get();
         }
 
         foreach ($products as $product){
@@ -43,7 +43,6 @@ class CartController extends Controller
 
         $htmlAnswer = $htmlAnswer."</div>";
         return response()->json($htmlAnswer);
-        //json(['html' => $htmlAnswer]);
     }
 
     public function create(Request $request){

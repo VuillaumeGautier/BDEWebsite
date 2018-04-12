@@ -16,7 +16,13 @@
 <h1>Products</h1>
 
 <div>
-    Sort by TYPE
+    Sort by type :
+    <select class="selectpicker" id="type-selector">
+        <option value="none">None</option>
+        <option value="cloth">Cloth</option>
+        <option value="goodies">Goodies</option>
+    </select>
+
 </div>
 
 <div class="container" id="products">
@@ -37,5 +43,11 @@
             $("#products").replaceWith(data);
         });
 
+    });
+
+    $("#type-selector").change(function(){
+        $.get( "/shop/products?type="+$("#type-selector").val(), function( data ) {
+            $("#products").replaceWith(data);
+        });
     });
 </script>
