@@ -21,6 +21,13 @@ Route::resource('/galerie', 'GalerieController');
 
 Route::get('/inscription', 'UserController@index');
 
+Route::post('/postInscription',[
+    'uses' => 'UserController@inscription',
+    'as' => 'inscription.post'
+]);
+
+Route::get('/SignIn','UserController@inscriptionIndex');
+
 Route::get('/connexion', 'UserController@index');
 
 Route::get('/my-account', 'UserController@index');

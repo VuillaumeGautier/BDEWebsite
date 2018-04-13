@@ -21,7 +21,7 @@ class UserController
 
     function  inscriptionIndex() {
 
-    return view('inscription');
+    return view('SignIn');
 
 
 
