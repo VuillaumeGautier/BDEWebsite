@@ -37,7 +37,7 @@ class CartController extends Controller
         }
 
         foreach ($products as $product){
-            $htmlAnswer = $htmlAnswer."<div class='col-sm-12 col-md-6 col-lg-4 product'><div class='prod-info'> <img src='../Pictures/products/mini_$product->photo' class='prod-photo' alt='Product photo' >"
+            $htmlAnswer = $htmlAnswer."<div class='col-sm-12 col-md-6 col-lg-4 col-xl-2 product'><div class='prod-info'> <img src='../Pictures/products/mini_$product->photo' class='prod-photo' alt='Product photo' >"
             ."<div class='prod-name'>$product->name</div><div class='prod-price'>$product->price</div></div></div>";
         }
 
@@ -55,7 +55,7 @@ class CartController extends Controller
 
         $product = Product::find($id);
 
-
+        return view('product',['name'=>$product->name,'img'=>$product->photo]);
     }
 
     public function getReduceOne($id){
