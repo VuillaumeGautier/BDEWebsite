@@ -1,6 +1,6 @@
 <header>
     <div class="col-sm-12" id="header-right">
-        <a title="Sign In" href="/connexion">Sign In</a> or <a title="Sign Up" href="/inscription">Sign Up</a>
+        <a title="Sign In" href="/SignIn">Sign In</a> or <a title="Sign Up" href="/inscription">Sign Up</a>
     </div>
     <div class="row" id="middle">
         <div class="col-md-6" id="logo">
@@ -31,8 +31,8 @@
                                 <div class="Eve"><h4>Events</h4></div>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <ul><a href="/events/coming" title="Incoming">Incoming Events</a></ul>
-                                <ul><a href="/events/done" title="Done">Past Events</a></ul>
+                                <ul><a href="/incoming" title="Incoming">Incoming Events</a></ul>
+                                <ul><a href="/done" title="Done">Past Events</a></ul>
                                 <ul><a href="/proposedevent" title="Ideas">Ideas Box</a></ul>
                             </div>
                         </li>
