@@ -4,8 +4,9 @@
     </div>
     <div class="row" id="middle">
         <div class="col-md-6" id="logo">
-
+            <a href="\">
             <img src="{{URL::asset('/pictures/Logo.png')}}" alt="profile Pic">
+            </a>
         </div>
 
         <div class="col-md-6">

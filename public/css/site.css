@@ -18,11 +18,48 @@ header
 
 #Descritpion
 {
+    width: 50%;
     margin-top: 1%;
     text-align: center;
     margin-bottom: 1%;
+    font-size: 150%;
 }
 
+.titIn
+{
+   font-size: 120%;
+    margin-bottom: 3%;
+}
+
+.descri11 {
+    background-image: url("../Pictures/BBQ.jpg");
+    width: 30%;
+    height: auto;
+}
+
+#ZoneText1
+{
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 15%;
+    margin-left: 15%;
+    width: 400px;
+    height: 400px;
+    background-color: #e2e3e5;
+    opacity: 0.8;
+}
+
+.titPa
+{
+    font-size: 120%;
+    margin-bottom: 3%;
+}
+
+.Even1
+{
+
+}
 #Separation1
 {
     border: 2px solid lightgrey;
