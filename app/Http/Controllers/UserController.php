@@ -36,14 +36,26 @@ class UserController
 
         $user->save();
 
+    return view('mail');
+
+    }
+
+    function loginIndex(){
+
+
+        return view('SignUp');
+
 
 
     }
 
+    function login(){
 
 
 
 
+
+    }
 
 };
 

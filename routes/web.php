@@ -28,6 +28,15 @@ Route::post('/postInscription',[
 
 Route::get('/SignIn','UserController@inscriptionIndex');
 
+Route::get('/SignUp','UserController@loginIndex');
+
+
+Route::post('/postLogin',[
+    'uses' => 'UserController@login',
+    'as' => 'login.post'
+]);
+
+
 Route::get('/connexion', 'UserController@index');
 
 Route::get('/my-account', 'UserController@index');

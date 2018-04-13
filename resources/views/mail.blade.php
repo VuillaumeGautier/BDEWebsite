@@ -48,4 +48,7 @@ $message.= $returnLign."--".$boundary."--".$returnLign;
 //=====Envoi de l'e-mail.
 mail($mail,$sujet,$message,$header);
 //==========
+
+return view('home');
 ?>
+
