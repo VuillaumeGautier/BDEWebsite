@@ -22,6 +22,11 @@ class IdeaController extends Controller{
     $idee->description = request('Description');
 
     $idee->save();
+
+    if ($idee) {
+
+        return redirect('/proposedevent');
+    }
 }
 
     function affichage()
@@ -31,7 +36,6 @@ class IdeaController extends Controller{
             'idees' => $idees,
         ]);
     }
-
 
 }
 

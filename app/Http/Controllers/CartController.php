@@ -51,7 +51,11 @@ class CartController extends Controller
     public function addItem (Request $request, $id){
     }
 
-    public function getCart(){
+    public function product($id){
+
+        $product = Product::find($id);
+
+
     }
 
     public function getReduceOne($id){

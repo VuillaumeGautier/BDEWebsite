@@ -48,7 +48,7 @@ Route::get('/shop/basket', [
     'as' => 'product.basket'
 ]);
 
-Route::get('/shop/product/{id}', 'CartController@display_product');
+Route::get('/shop/product/{id}', 'CartController@product');
 
 Route::get('/boutique', [
     'uses' => 'CartController@getBoutique',
@@ -67,7 +67,11 @@ Route::get('/remove',[
 
 Route::get('/events', 'EventController@index');
 
-Route::post('/proposedevent', 'IdeaController@propose');
+Route::get('/ideabox', function (){
+    return view('ideabox');
+});
+
+Route::post('/ideabox', 'IdeaController@propose');
 
 Route::get('/proposedevent', 'IdeaController@affichage');
 
@@ -76,6 +80,8 @@ Route::get('/events/coming', 'EventController@index');
 Route::get('/events/coming/{id}', 'EventController@index');
 
 Route::get('/events/done', 'EventController@index');
+
+Route::post('/ideabox', 'IdeaController@propose');
 
 Route::get('/events/done/{id}', 'EventController@index');
 
