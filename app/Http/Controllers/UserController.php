@@ -8,13 +8,8 @@
 
 namespace App\Http\Controllers;
 
-
-
-
-
-
-
-
+use App\Providers\User;
+use Illuminate\Database\Eloquent\Model;
 class UserController
 {
 
@@ -29,10 +24,18 @@ class UserController
 
     function inscription(){
 
-       echo $_POST['name'];
-       echo $_POST['fname'];
-       echo $_POST['email'];
-       echo $_POST['password'];
+
+        $user = User::create([
+
+            'name' => $_POST['name'],
+            'fname' => $_POST['fname'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password']
+
+        ]);
+
+        $user->save();
+
 
 
     }
