@@ -19,16 +19,14 @@ Route::get('/galerie', function(){ return redirect('/galerie'); });
 
 Route::resource('/galerie', 'GalerieController');
 
-Route::get('/inscription', 'UserController@index');
-
 Route::post('/postInscription',[
     'uses' => 'UserController@inscription',
     'as' => 'inscription.post'
 ]);
 
-Route::get('/SignIn','UserController@inscriptionIndex');
+Route::get('/SignUp','UserController@inscriptionIndex');
 
-Route::get('/SignUp','UserController@loginIndex');
+Route::get('/SignIn','UserController@loginIndex');
 
 
 Route::post('/postLogin',[

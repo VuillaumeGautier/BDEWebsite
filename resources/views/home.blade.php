@@ -23,45 +23,43 @@
     élèves, et diverses activités allant des rencontres sportives
 </div>
 
-<div class="Separation1" id="Separation1">
+<div class="Separation1" id="Separation1"></div>
+<div class="row">
 
-</div>
-
-<div class="Even1, col-6-md">
+<div class="Even1, col-md-4">
     <div class="titIn"><h2>Incoming Events</h2></div>
         <div class="descri11">
-            <div class="ZoneText" id="ZoneText1">
-            </br>
-             Quand on voit le soleil briller,</br>
-             Nos femmes se mettent à bronzer </br>
-             Mais ne serait-il pas temps</br>
-             D’apprendre au barbecue à en faire autant ?</br>
+            <div class="wallp1">
+            <div class="ZoneText, col-1-md" id="ZoneText1">
+
+             Barbecue Inter-Promotion
             </div>
+        </div>
         </div>
 </div>
 
-<div class="Separation2" id="Separation2">
+<div class="Even11, col-md-5">
+    <div class="descri12">
+        <div class="ZoneText2" id="ZoneText2">
+            Barbecue Inter-Promotion
 
-</div>
-
-<div class="Even2">
-    <div class="titPa"><h2>Past Events</h2></div>
-
-    <div class="descri11">
-        <div class="ZoneText" id="ZoneText1">
-            </br>
-            Quand on voit le soleil briller,</br>
-            Nos femmes se mettent à bronzer </br>
-            Mais ne serait-il pas temps</br>
-            D’apprendre au barbecue à en faire autant ?</br>
         </div>
     </div>
 
 </div>
+</div>
 
-<div class="Separation3" id="Separation3">
+<div class="Separation2" id="Separation2"></div>
+
+<div class="Even2">
+    <div class="titPa"><h2>Past Events</h2></div>
+
+
 
 </div>
+
+<div class="Separation3" id="Separation3"></div>
+
 <div class="Shop">
     <div class="titSh"><h2>Best Sells</h2></div>
 </div>

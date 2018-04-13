@@ -53,19 +53,51 @@ header
 
 .descri11 {
     background-image: url("../Pictures/BBQ.jpg");
-    width: 30%;
-    height: auto;
+    width: 500px;
+    height: 500px;
+
+
+}
+
+.descri12 {
+    margin-left: 20%;
+    margin-top: 15%;
+    background-image: url("../Pictures/BBQ.jpg");
+    width: 500px;
+    height: 500px;
+
 }
 
 #ZoneText1
 {
     color: black;
     font-size: 30px;
+
+}
+
+.wallp1
+{
+    padding-top: 30%;
+    padding-bottom: 30%;
+    padding-right: 30%;
+    padding-left: 30%;
+    width: 50%;
+    height: 50%;
+    background-color: #e2e3e5;
+    opacity: 0.8;
+    align-content: center;
+}
+
+#ZoneText2
+{
+    color: black;
+    font-size: 30px;
+    padding-right: 10%;
+    padding-left: 10%;
+    width: 50%;
+    height: 50%;
     text-align: center;
-    margin-bottom: 15%;
-    margin-left: 15%;
-    width: 400px;
-    height: 400px;
+    padding-top: 40%;
     background-color: #e2e3e5;
     opacity: 0.8;
 }

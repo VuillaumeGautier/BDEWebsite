@@ -10,6 +10,8 @@ namespace App\Http\Controllers;
 
 use App\Providers\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
+
 class UserController
 {
 
@@ -29,7 +31,7 @@ class UserController
 
             'name' => $_POST['name'],
             'fname' => $_POST['fname'],
-            'email' => $_POST['email'],
+            'mail' => $_POST['email'],
             'password' => $_POST['password']
 
         ]);
@@ -52,21 +54,20 @@ class UserController
     function login(){
 
         $user = User::where(
-
-            'email','=',$_POST['email']
+            'mail','=',$_POST['email']
         )->first();
 
 
-    if($_POST['password'] = $user->password) {
+    if($_POST['password'] = $user->pwd) {
 
-        $_SESSION["user_id"] = $user->id_users;
+        Session::put('user_id',$user->id_users);
 
         return view('home');
 
     }
 
     else{
-
+        echo "gfgfsfdsffssfd";
         return view('SignUp');
 
     }

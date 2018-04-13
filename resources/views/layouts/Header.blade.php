@@ -1,6 +1,6 @@
 <header>
     <div class="col-sm-12" id="header-right">
-        <a title="Sign In" href="/SignIn">Sign In</a> or <a title="Sign Up" href="/inscription">Sign Up</a>
+        <a title="Sign In" href="/SignIn">Sign In</a> or <a title="Sign Up" href="/SignUp">Sign Up</a>
     </div>
     <div class="row" id="middle">
         <div class="col-md-6" id="logo">
