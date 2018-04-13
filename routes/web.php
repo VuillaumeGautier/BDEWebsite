@@ -65,8 +65,6 @@ Route::get('/remove',[
     'as' => 'product.remove'
 ]);
 
-Route::get('/events', 'EventController@index');
-
 Route::get('/ideabox', function (){
     return view('ideabox');
 });
@@ -75,7 +73,7 @@ Route::post('/ideabox', 'IdeaController@propose');
 
 Route::get('/proposedevent', 'IdeaController@affichage');
 
-Route::get('/events/coming', 'EventController@index');
+Route::get('/incoming', 'EventController@create');
 
 Route::get('/events/coming/{id}', 'EventController@index');
 
