@@ -51,11 +51,29 @@ class UserController
 
     function login(){
 
+        $user = User::where(
+
+            'email','=',$_POST['email']
+        )->first();
 
 
+    if($_POST['password'] = $user->password) {
 
+        $_SESSION["user_id"] = $user->id_users;
+
+        return view('home');
 
     }
+
+    else{
+
+        return view('SignUp');
+
+    }
+
+    }
+
+
 
 };
 
