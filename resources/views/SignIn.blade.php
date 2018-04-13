@@ -45,7 +45,7 @@
         <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
         <div class="col-md-6">
-            <input id="password-confirm"  type="password" class="form-control" name="password_confirmation">
+            <input id="password-confirm"  type="password" name="password_confirmation">
         </div>
     </div>
 
@@ -59,33 +59,45 @@
 </form>
 
 
-<scrip t>
+<script  type="text/javascript">
 
     function validateForm() {
-        var x = document.getElementById("fname");
-        if (x == "") {
-            alert("First name must be filled out");
-            return false;
-        }
 
-        var x = document.forms["SignIn"]["name"].value;
+
+        var x = document.getElementById("name").value;
         if (x == "") {
             alert("Name must be filled out");
             return false;
         }
 
-        var x = document.forms["SignIn"]["email"].value;
+        var x = document.getElementById("fname").value;
+        if (x == "") {
+            alert("First name must be filled out");
+            return false;
+        }
+
+        var x = document.forms("email").value;
         if (x == "") {
             alert("Email must be filled out");
             return false;
         }
 
-        var x = document.getElementById("password");
-        var y = document.getElementById("password-confirm");
-        if (x != y | x == "") {
+
+
+        var x = document.getElementById("password").value;
+        var y = document.getElementById("password-confirm").value;
+
+        if (x == 0) {
+            alert("Passwords must be filled out");
+            return false;
+
+        }
+
+        if (x != y) {
             alert("Passwords not the same");
             return false;
         }
+
 
     }
 
