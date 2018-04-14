@@ -13,7 +13,7 @@
 @include("layouts.Header")
 
 <div>
-    Back
+    <a href="/shop">Back</a>
 </div>
 
 <div>
@@ -24,8 +24,21 @@
     {{$name}}
 </div>
 
+<div class="row">
+
+
+    <div class="col-sm-12 col-md-6">
+        <img src="../../Pictures/products/{{$img}}">
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+        {{$desc}}
+    </div>
+</div>
+
 <div>
-    <img src="">
+
+
 </div>
 
 

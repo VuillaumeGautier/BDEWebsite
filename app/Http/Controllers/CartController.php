@@ -37,8 +37,8 @@ class CartController extends Controller
         }
 
         foreach ($products as $product){
-            $htmlAnswer = $htmlAnswer."<div class='col-sm-12 col-md-6 col-lg-4 col-xl-2 product'><div class='prod-info'> <img src='../Pictures/products/mini_$product->photo' class='prod-photo' alt='Product photo' >"
-            ."<div class='prod-name'>$product->name</div><div class='prod-price'>$product->price</div></div></div>";
+            $htmlAnswer = $htmlAnswer."<div class='col-sm-12 col-md-6 col-lg-3 col-xl-2 product'><a href='/shop/product/$product->id_products'> <div class='prod-info'> <img src='../Pictures/products/mini_$product->photo' class='prod-photo' alt='Product photo' >"
+            ."<div class='prod-name'>$product->name</div><div class='prod-price'>$product->price</div></div></a></div>";
         }
 
         $htmlAnswer = $htmlAnswer."</div>";
@@ -48,14 +48,14 @@ class CartController extends Controller
     public function create(Request $request){
     }
 
-    public function addItem (Request $request, $id){
+    public function addItem (){
     }
 
     public function product($id){
 
         $product = Product::find($id);
 
-        return view('product',['name'=>$product->name,'img'=>$product->photo]);
+        return view('product',['name'=>$product->name,'img'=>$product->photo, 'desc'=>$product->description, 'price'=>$product->price]);
     }
 
     public function getReduceOne($id){

@@ -57,17 +57,12 @@ Route::get('/shop/basket', [
 
 Route::get('/shop/product/{id}', 'CartController@product');
 
-Route::get('/boutique', [
-    'uses' => 'CartController@getBoutique',
-    'as' => 'product.index'
-]);
-
 Route::post('/add-to-cart',[
     'uses' => 'CartController@addItem',
     'as' => 'product.addToCart'
 ]);
 
-Route::get('/remove',[
+Route::post('/remove',[
     'uses' => 'CartController@getRemoveItem',
     'as' => 'product.remove'
 ]);
