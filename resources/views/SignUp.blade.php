@@ -1,9 +1,31 @@
-<?php
+<!-- Code by Nicolas JEROME
 
-?>
+    nicolas.jerome1@viacesi.fr
+
+ This is the code of the form for the connexion of the users to they account
+
+ -->
+
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/site.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+@include("layouts.Header")
+
 <form name="signUp" id="signUp" method="POST" action="{{ route('login.post') }}"  onsubmit="return validateForm()" >
 
+    <fieldset>
 
+        <legend>Sign in :</legend>
     @csrf
 
     <div class="form-group row">
@@ -31,11 +53,22 @@
             </button>
         </div>
     </div>
+
+    </fieldset>
+
 </form>
+
+@include("layouts.Footer")
+
+<!--
+
+This is the code of the validation script of the form
+
+-->
 
 <script type="text/javascript">
 
-    function validateForm{
+    function validateForm(){
 
 
 
