@@ -17,7 +17,7 @@
 </div>
 
 <div>
-    CART
+    <a href="/shop/basket">CART</a>
 </div>
 
 <div>

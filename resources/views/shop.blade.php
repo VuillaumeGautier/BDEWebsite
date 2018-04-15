@@ -15,6 +15,8 @@
 
 <h1>Products</h1>
 
+<a href="/shop/basket">CART</a>
+
 <div>
     Sort by type :
     <select class="selectpicker" id="type-selector">
