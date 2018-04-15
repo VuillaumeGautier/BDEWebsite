@@ -6,7 +6,7 @@
 body, html{
     height: 100%;
     background-repeat: no-repeat;
-    background:url(http://www.photobest.fr/files/58-gris-clair.jpg);
+    background-color: antiquewhite;
     font-family: 'Oxygen', sans-serif;
     background-size: cover;
 }
@@ -41,7 +41,7 @@ input::-webkit-input-placeholder {
 }
 
 .main-login{
-    background-color: #fff;
+    background-color: #faebd7;
     /* shadows and rounded borders */
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -64,7 +64,7 @@ input::-webkit-input-placeholder {
     border: 1px solid #ccc;
     margin-top: 28px;
     padding: 6px 12px;
-    color: #666;
+    color: #df5151;
     text-shadow: 0 1px #fff;
     cursor: pointer;
     -moz-border-radius: 3px 3px;
