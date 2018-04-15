@@ -62,7 +62,13 @@ class CartController extends Controller
             return redirect('/SignIn');
         }
 
-        return view('cart');
+        if(isset($_COOKIE["cart"])){
+            $cart = unserialize($_COOKIE["cart"]);
+        }else{
+            $cart = [];
+        }
+
+        return view('cart', ['cart'=>$cart]);
 
     }
 

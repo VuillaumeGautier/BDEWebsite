@@ -13,8 +13,15 @@
 
 @include("layouts.Header")
 
+<div>
+    <a href="/shop">Back</a>
+</div>
 
+<div>
 <a href="/shop/basket">CART</a>
+</div>
+
+
 
 
 
