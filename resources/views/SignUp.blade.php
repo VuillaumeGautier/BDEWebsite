@@ -24,6 +24,8 @@
 @include("layouts.Header")
 
 
+<body>
+
 <div class="container">
     <div class="row main">
         <div class="main-login main-center">
@@ -80,6 +82,8 @@
         </div>
     </div>
 </div>
+
+</body>
 
 @include("layouts.Footer")
 
