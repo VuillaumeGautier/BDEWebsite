@@ -111,7 +111,6 @@ class UserController
             return view('home');
 
         } else {
-            echo "gfgfsfdsffssfd";
             return view('SignUp');
 
         }
@@ -131,7 +130,7 @@ class UserController
     {
 
 
-        Auth::logout();
+        Session::put('user_id', null);
         return view('home');
 
     }

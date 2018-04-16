@@ -13,7 +13,7 @@
     else {
 
         echo '<div class="col-sm-12" id="header-right">
-             <a title="Logout" href="/logout">Logout</a>
+             <a title="Logout" href="/logout"> Logout</a>
              </div>';
 
 

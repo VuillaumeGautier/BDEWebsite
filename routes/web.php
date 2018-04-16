@@ -37,7 +37,7 @@ Route::post('/postLogin',[
 
 Route::get('/connexion', 'UserController@index');
 
-Route::post('/logout', 'UserController@logout');
+Route::get('/logout','UserController@logout');
 
 Route::get('/my-account', 'UserController@index');
 
