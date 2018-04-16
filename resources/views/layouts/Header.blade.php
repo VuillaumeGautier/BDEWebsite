@@ -1,7 +1,26 @@
 <header>
-    <div class="col-sm-12" id="header-right">
-        <a title="Sign In" href="/SignIn">Sign In</a> or <a title="Sign Up" href="/SignUp">Sign Up</a>
-    </div>
+
+<?php
+
+
+    if (empty(Session::get('user_id'))){
+ echo       '<div class="col-sm-12" id="header-right">
+             <a title="Sign In" href="/SignIn">Sign In</a> or <a title="Sign Up" href="/SignUp">Sign Up</a>
+             </div>';
+
+}
+
+    else {
+
+        echo '<div class="col-sm-12" id="header-right">
+             <a title="Logout" href="/logout">Logout</a>
+             </div>';
+
+
+    }
+
+?>
+
     <div class="row" id="middle">
         <div class="col-md-6" id="logo">
             <a href="\">

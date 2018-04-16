@@ -14,6 +14,8 @@ namespace App\Http\Controllers;
 use App\Providers\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController
 {
@@ -29,13 +31,11 @@ class UserController
      *************************************************************/
 
 
+    function inscriptionIndex()
+    {
 
-    function  inscriptionIndex() {
 
-
-
-    return view('SignIn');
-
+        return view('SignIn');
 
 
         /**
@@ -49,7 +49,8 @@ class UserController
 
     }
 
-    function inscription(){
+    function inscription()
+    {
 
 
         $user = User::create([
@@ -63,7 +64,7 @@ class UserController
 
         $user->save();
 
-    return view('mail');
+        return view('mail');
 
     }
 
@@ -76,11 +77,11 @@ class UserController
      *************************************************************
      *************************************************************/
 
-    function loginIndex(){
+    function loginIndex()
+    {
 
 
         return view('SignUp');
-
 
 
     }
@@ -95,26 +96,25 @@ class UserController
      *************************************************************
      *************************************************************/
 
-    function login(){
+    function login()
+    {
 
         $user = User::where(
-            'mail','=',$_POST['email']
+            'mail', '=', $_POST['email']
         )->first();
 
 
-    if($_POST['password'] = $user->pwd) {
+        if ($_POST['password'] = $user->pwd) {
 
-        Session::put('user_id',$user->id_users);
+            Session::put('user_id', $user->id_users);
 
-        return view('home');
+            return view('home');
 
-    }
+        } else {
+            echo "gfgfsfdsffssfd";
+            return view('SignUp');
 
-    else{
-        echo "gfgfsfdsffssfd";
-        return view('SignUp');
-
-    }
+        }
 
     }
 
@@ -127,16 +127,16 @@ class UserController
      *************************************************************
      *************************************************************/
 
-    function logout(){
+    function logout()
+    {
 
 
-        $_SESSION = array();
-
+        Auth::logout();
         return view('home');
+
     }
 
-
-};
+}
 
 
 
