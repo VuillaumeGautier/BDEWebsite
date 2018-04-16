@@ -1,26 +1,19 @@
 <?php
-/*************************************************************
- *************************************************************
- ***                                                       ***
- ***                 Code by Nicolas JEROME                ***
- ***               nicolas.jerome1@viacesi.fr              ***
- ***                                                       ***
- *************************************************************
- *************************************************************
- ***                                                       ***
- ***          This is the code of the Like table           ***
- ***                                                       ***
- *************************************************************
- *************************************************************/
-
-namespace App\Providers;
-
-
+namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
+    public function user_bde()
+    {
+        return $this->hasOne(user_bde::class);
+    }
 
-    protected $primaryKey = 'id_likes';
+    public function picture()
+    {
+        return $this->hasOne(picture::class);
+    }
+
+    protected $fillable = ['id_user', 'id_picture'];
     public $timestamps = false;
 }

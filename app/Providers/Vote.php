@@ -23,5 +23,7 @@ class Vote extends Model
     protected $primaryKey = 'id_votes';
     public $timestamps = false;
 
-
+    public function idee(){
+        return $this->hasOne(idee::class);
+    }
 }

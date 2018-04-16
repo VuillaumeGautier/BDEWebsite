@@ -21,28 +21,16 @@ use App\Providers\User;
 
 class Event extends Model
 {
-
-    protected $primaryKey = 'id_events';
-    protected $table = 'events';
-    public $timestamps = false;
-
-    function photos(){
-
-        return $this->hasMany('App\Providers\Photo','id_photos','id_events');
-
-
+    protected $fillable = array('event_title', 'event_price','event_date','event_text','event_picture_url','event_status');
+    public function picture()
+    {
+        return $this->belongsTo(picture::class);
     }
-
-    function isCreate(){
-
-        return $this->belongsTo('App\Providers\User','id_users','id_events');
-
+    public function user_bde()
+    {
+        return $this->belongsToMany(user_bde::class,'id_event');
     }
-
-    function hasUsers(){
-
-        return $this->belongsToMany('App\Providers\User','participate','id_events','id_users');
-
+    public function register(){
+        return $this->belongsTo(register::class);
     }
-
 }

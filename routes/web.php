@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function (){
-   return view('home');
+   return view('Test');
 });
 
 Route::get('/galerie', function(){ return redirect('/galerie'); });
@@ -75,34 +75,21 @@ Route::post('/ideabox', 'IdeaController@propose');
 
 Route::get('/proposedevent', 'IdeaController@affichage');
 
-Route::get('/incoming', 'EventController@create');
+Route::get('/incoming', 'EventController@index');
+
+Route::get('events', 'eventsController@index');
+
+Route::get('/events', function (){
+    return view('Events');
+});
+
+Route::get('/postEvent', 'postEventController@get');
+Route::post('/postEvent', 'postEventController@post');
 
 Route::get('/events/coming/{id}', 'EventController@index');
 
 Route::get('/events/done', 'EventController@index');
 
-Route::post('/ideabox', 'IdeaController@propose');
-
 Route::get('/events/done/{id}', 'EventController@index');
 
-Route::group(['middleware' => ['auth']], function()
-{
-    // show new post form
-    Route::get('new-post','EventController@create');
-    // save new post
-    Route::post('new-post','EventController@store');
-    // edit post form
-    Route::get('edit/{slug}','EventController@edit');
-    Route::get('inscription/{slug}','EventController@inscription');
-    Route::post('inscrire','InscriptionController@index');
-    // update post
-    Route::post('update','EventController@update');
-    // delete post
-    Route::get('delete/{id}','EventController@destroy');
-    // display user's all posts
-    Route::get('my-all-posts','EventController@user_posts_all');
-    // add comment
-    Route::post('comment/add','CommentController@store');
-    // delete comment
-    Route::post('comment/delete/{id}','EventController@distroy');
-});
+Route::post('/ideabox', 'IdeaController@propose');

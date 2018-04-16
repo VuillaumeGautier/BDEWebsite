@@ -31,7 +31,6 @@
         <div class="descri11">
             <div class="wallp1">
             <div class="ZoneText, col-1-md" id="ZoneText1">
-
              Barbecue Inter-Promotion
             </div>
         </div>
@@ -53,8 +52,6 @@
 
 <div class="Even2">
     <div class="titPa"><h2>Past Events</h2></div>
-
-
 
 </div>
 
@@ -81,7 +78,7 @@
         <!-- Page 2 -->
         <div class="item">
             <div class="carousel-page"><img src="/Pictures/WC_1.jpg" class="img-responsive img-rounded"
-                                            style="margin: auto;"  /></div>
+          style="margin: auto;"  /></div>
         </div>
         <!-- Page 3 -->
         <div class="item">

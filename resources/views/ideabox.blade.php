@@ -20,5 +20,10 @@
     <input type="submit" value="Envoyer" />
 </form>
 
+
+<a href='http://bdewebsite/proposedevent' >
+    <input type="button" value="BACK"/>
+</a>
+
 @include("layouts.Footer")
 </body>
