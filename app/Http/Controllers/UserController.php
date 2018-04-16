@@ -103,8 +103,15 @@ class UserController
             'mail', '=', $_POST['email']
         )->first();
 
+        if ($user == null){
 
-        if ($_POST['password'] = $user->pwd) {
+            return view('SignUp');
+
+
+
+        }
+
+        if ($_POST['password'] == $user->pwd) {
 
             Session::put('user_id', $user->id_users);
 
