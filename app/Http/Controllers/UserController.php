@@ -142,6 +142,15 @@ class UserController
 
     }
 
+
+
+    function admin()
+    {
+
+        return view('admin');
+
+    }
+
 }
 
 

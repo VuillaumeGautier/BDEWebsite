@@ -35,6 +35,9 @@ Route::post('/postLogin',[
 ]);
 
 
+Route::get('/Admin','UserController@admin');
+
+
 Route::get('/connexion', 'UserController@index');
 
 Route::get('/logout','UserController@logout');
