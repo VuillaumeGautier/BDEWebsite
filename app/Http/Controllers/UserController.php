@@ -151,6 +151,46 @@ class UserController
 
     }
 
+    function showOrderTable(){
+
+        $htmlresponse =   "<div class='table-responsive'>"
+            ."<table class='table'>"
+            ."<thead>";
+
+
+    }
+
+    function showUserTable(){
+
+        $htmlresponse =   "<div class='table-responsive'>"
+                    ."<table class='table'><thead><tr><th>Firstname</th><th>Lastname</th>
+<th>Mail</th><th>Right</th></tr></thead><tbody>";
+
+
+        $user = \App\Providers\User::all();
+
+
+
+        foreach ($user as $value)
+        {
+            $htmlresponse = $htmlresponse."<tr>".
+                "<th>".$value->fname."</th>".
+                "<th>".$value->name."</th>".
+                "<th>".$value->mail."</th>".
+                "<th>".$value->rights."</th>"  .
+                "</tr>" ;
+
+
+        }
+
+        $htmlresponse = $htmlresponse."</tbody></table></div></div>";
+
+
+        return response()->json($htmlresponse);
+
+    }
+
+
 }
 
 

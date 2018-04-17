@@ -37,6 +37,8 @@ Route::post('/postLogin',[
 
 Route::get('/Admin','UserController@admin');
 
+Route::get('Admin/ShowUser','UserController@showUserTable');
+
 
 Route::get('/connexion', 'UserController@index');
 
