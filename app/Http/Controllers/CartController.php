@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Providers\Order;
 use App\Providers\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -36,11 +37,17 @@ class CartController extends Controller
 
         //Check the type in the URL and take products
 
+        if($_GET['max'] == ""){
+            $max = 1000000 ;
+        }else{
+            $max = $_GET['max'];
+        }
+
         if($_GET["type"] == "none") {
-            $products = Product::all();
+            $products = Product::where("price","<", $max)->get();
         }
         else{
-            $products = Product::where("type",$_GET["type"])->get();
+            $products = Product::where("type",$_GET["type"])->where("price","<", $max)->get();
         }
 
         //Generate the html to fill the view
@@ -62,6 +69,10 @@ class CartController extends Controller
             return redirect('/SignIn');
         }
 
+        if (Session::get('user_id')== 2){
+            $add = true ;
+        }
+
         $total = 0;
 
         if(isset($_COOKIE["cart"])){
@@ -80,8 +91,7 @@ class CartController extends Controller
             $items = [];
         }
 
-        return view('cart', ['items' => $items, 'total' => $total]);
-
+        return view('cart', ['items' => $items, 'total' => $total, 'add' => $add]);
 
     }
 
@@ -117,7 +127,14 @@ class CartController extends Controller
 
         $product = Product::find($id);
 
-        return view('product',['name'=>$product->name,'img'=>$product->photo, 'desc'=>$product->description, 'price'=>$product->price, 'id'=>$id]);
+        if (Session::get('user_id')== 2){
+            $del = true ;
+        }
+        else{
+            $del = false;
+        }
+
+        return view('product',['name'=>$product->name,'img'=>$product->photo, 'desc'=>$product->description, 'price'=>$product->price, 'id'=>$id, 'del' => $del]);
     }
 
     public function getReduceOne($id){
@@ -150,5 +167,30 @@ class CartController extends Controller
 
 
         return redirect('/shop/cart');
+    }
+
+    function send(){
+
+        if (empty(Session::get('user_id'))){
+            return redirect('/SignIn');
+        }
+
+        $cart = unserialize($_COOKIE["cart"]);
+
+        $order = new Order();
+        $order->creation_date = date('Y-m-d');
+        $order->id_users = Session::get('user_id');
+
+        $order->save();
+
+        foreach ($cart as $item => $number){
+            $product = Product::find($item);
+
+            $product->orders()->attach($order->id_orders,['Quantity' => $number]);
+        }
+
+        setcookie("cart", null, 1);;
+
+        return view('shop');
     }
 }

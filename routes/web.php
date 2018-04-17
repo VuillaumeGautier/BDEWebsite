@@ -54,6 +54,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::post('/home', 'HomeController@update');
 
+//Shop part
+
 
 Route::get('/shop', 'CartController@getBoutique');
 
@@ -63,6 +65,7 @@ Route::get('/shop/cart', [
 ]);
 
 Route::get('/shop/product/{id}', 'CartController@product');
+
 
 Route::get('/send', 'CartController@send');
 
@@ -75,6 +78,12 @@ Route::post('/remove',[
     'uses' => 'CartController@getRemoveItem',
     'as' => 'product.remove'
 ]);
+
+Route::post('/shop/delete', 'CartController@delete');
+
+Route::post('/shop/add', 'CartController@add');
+
+//EndShop
 
 Route::get('/ideabox', function (){
     return view('ideabox');

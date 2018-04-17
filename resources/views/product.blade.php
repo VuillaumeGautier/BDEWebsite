@@ -41,7 +41,7 @@
         {{ csrf_field() }}
         <input type="hidden" name="product" value="{{$id}}">
         Number of products
-        <input type="text" name="number">
+        <input type="number" name="number" min="1" step="1">
         <input type="submit" value="Add to cart">
     </form>
 </div>
