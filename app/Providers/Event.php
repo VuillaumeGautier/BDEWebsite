@@ -21,10 +21,15 @@ use App\Providers\User;
 
 class Event extends Model
 {
+    protected $primaryKey = 'id_events';
     protected $fillable = array('event_title', 'event_price','event_date','event_text','event_picture_url','event_status');
 
     public function users()
     {
         return $this->belongsToMany('App\Providers\User','participate','id_events','id_users');
+    }
+
+    public  function  photos(){
+        return $this->hasMany('App\Providers\Photo','id_events','id_events');
     }
 }

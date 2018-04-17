@@ -15,15 +15,12 @@
 <?php $i = 0; ?>
 
 <div class="allDivs">
-    <div class="space"></div>
-    <a href="/ideabox">Poster un événement</a>
-    <div class="space"></div>
 
     <div class="container">
         @foreach($events as $row)
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href=<?php echo("/eventPicture".$row['id_events']) ?> class="MakaleYazariAdi"><?php echo $row['name']?> </a>
+                    <a href="/done/{{$row['id_events']}}"> {{$row['name']}}</a>
                     <div class="btn-group" style="float:right;">
                         <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="glyphicon glyphicon-cog"></span>
@@ -49,9 +46,6 @@
                             <h4 class="media-heading"> <?php echo $row['event_date'] ?></h4>
                             <?php echo $row['event_text'] ?>
                             <div class="clearfix"></div>
-                            <div class="button">
-                                <button type="button" class="btn btn-default"> S'inscrire </button>
-                            </div>
                         </div>
                     </div>
                 </div>
