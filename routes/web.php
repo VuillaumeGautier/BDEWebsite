@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function (){
-   return view('Test');
+   return view('home');
 });
 
 Route::get('/galerie', function(){ return redirect('/galerie'); });
