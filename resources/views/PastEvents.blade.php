@@ -14,7 +14,6 @@
 
 <?php $i = 0; ?>
 
-
 <div class="allDivs">
     <div class="space"></div>
     <a href="/ideabox">Poster un événement</a>

@@ -15,7 +15,8 @@ Route::get('/', function (){
    return view('home');
 });
 
-Route::get('/galerie', function(){ return redirect('/galerie'); });
+Route::get('/galerie', function() {
+    return redirect('/galerie'); });
 
 Route::resource('/galerie', 'GalerieController');
 
@@ -97,9 +98,9 @@ Route::post('/ideabox', 'IdeaController@propose');
 
 Route::get('/proposedevent', 'IdeaController@affichage');
 
-Route::get('/incoming', 'EventController@index');
+Route::get('/incoming', 'EventController@incoming');
 
-Route::get('events', 'eventsController@index');
+Route::get('/done', 'EventController@past');
 
 Route::get('/events', function (){
     return view('Events');
