@@ -1,12 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Nicolas local
- * Date: 17/04/2018
- * Time: 08:57
- */
-
-?>
 
 
 <html>
@@ -28,6 +19,7 @@
 
 
 @csrf
+
 
 
     <div id="button-container" class="container">
