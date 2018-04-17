@@ -60,7 +60,7 @@
             </div>
 
             <div>
-                <a href=""><button>Send command</button></a>
+                <a href="/send"><button>Send command</button></a>
             </div>
         </div>
     @endif

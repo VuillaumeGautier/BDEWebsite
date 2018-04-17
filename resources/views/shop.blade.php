@@ -21,10 +21,17 @@
     Sort by type :
     <select class="selectpicker" id="type-selector">
         <option value="none">None</option>
-        <option value="cloth">Cloth</option>
-        <option value="goodies">Goodies</option>
+        @foreach($types as $type)
+            <option value="{{$type}}">{{$type}}</option>
+        @endforeach
     </select>
 
+</div>
+
+<div>
+    <form>
+        Maximum price : <input title="max"id="max">
+    </form>
 </div>
 
 <div class="container" id="products">
@@ -41,14 +48,20 @@
 <script>
     $( document ).ready(function() {
 
-        $.get( "/shop/products?type=none", function( data ) {
+        $.get( "/shop/products?type=none&max=", function( data ) {
             $("#products").replaceWith(data);
         });
 
     });
 
     $("#type-selector").change(function(){
-        $.get( "/shop/products?type="+$("#type-selector").val(), function( data ) {
+        $.get( "/shop/products?type="+$("#type-selector").val()+"&max="+$("#max").val(), function( data ) {
+            $("#products").replaceWith(data);
+        });
+    });
+
+    $("#max").change(function(){
+        $.get( "/shop/products?type="+$("#type-selector").val()+"&max="+$("#max").val(), function( data ) {
             $("#products").replaceWith(data);
         });
     });

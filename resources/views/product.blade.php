@@ -20,9 +20,17 @@
     <a href="/shop/cart">CART</a>
 </div>
 
+@if($del == true)
+    <div>
+        <a href="/shop/delete?product={{$id}}"></a>
+    </div>
+@endif
+
 <div>
     {{$name}}
 </div>
+
+
 
 <div class="row">
 
@@ -41,7 +49,7 @@
         {{ csrf_field() }}
         <input type="hidden" name="product" value="{{$id}}">
         Number of products
-        <input type="text" name="number">
+        <input type="number" name="number" min="1" step="1">
         <input type="submit" value="Add to cart">
     </form>
 </div>
