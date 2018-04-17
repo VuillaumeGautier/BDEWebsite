@@ -154,9 +154,37 @@ class UserController
     function showOrderTable(){
 
         $htmlresponse =   "<div class='table-responsive'>"
-            ."<table class='table'>"
-            ."<thead>";
+            ."<table class='table'><thead><tr><th>Name</th><th>Lastname</th>
+<th>Order</th></tr></thead><tbody>";
 
+
+        $user = \App\Providers\User::all();
+
+
+
+        foreach ($user as $value)
+        {
+
+            $order = $value->orders();
+
+
+            foreach ($order as $stock) {
+
+                $htmlresponse = $htmlresponse . "<tr>" .
+                    "<th>" . $value->name . "</th>" .
+                    "<th>" . $value->fname . "</th>" .
+                    "<th>" . $stock->id_orders . "</th>" .
+                    "</tr>";
+
+            }
+
+
+        }
+
+        $htmlresponse = $htmlresponse."</tbody></table></div></div>";
+
+
+        return response()->json($htmlresponse);
 
     }
 

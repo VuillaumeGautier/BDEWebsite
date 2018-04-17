@@ -39,6 +39,8 @@ Route::get('/Admin','UserController@admin');
 
 Route::get('Admin/ShowUser','UserController@showUserTable');
 
+Route::get('Admin/ShowOrder','UserController@showOrderTable');
+
 
 Route::get('/connexion', 'UserController@index');
 

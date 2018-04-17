@@ -32,6 +32,17 @@
 
     <div id="button-container" class="container">
 
+        <button id="show-users">Show users</button>
+        <button id="show-orders">Show orders</button>
+
+
+
+    </div>
+
+
+    <div class="container" id="container-table">
+
+
 
 
     </div>
@@ -46,15 +57,15 @@
 <script>
 
 
-    $("#show-users").change(function(){
-        $.get( "/shop/products?type="+$("#show-users").val(), function( data ) {
-            $("#products").replaceWith(data);
+    $("#show-orders").click(function(){
+        $.get( "/Admin/ShowOrder", function( data ) {
+            $("#container-table").replaceWith(data);
         });
     });
 
-    $("#show-orders").change(function(){
-        $.get( "/shop/products"+$("#show-orders").val(), function( data ) {
-            $("#products").replaceWith(data);
+    $("#show-users").click(function(){
+        $.get( "/Admin/ShowUser", function( data ) {
+            $("#container-table").replaceWith(data);
         });
     });
 </script>
