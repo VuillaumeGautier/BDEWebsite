@@ -1,19 +1,34 @@
 <?php
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
+use App\Providers\Participate;
+use App\Providers\User;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+
 class likeController extends Controller
 {
-    public function post(){
-        if(isset($_POST['id_picture']) && isset($_POST['id_user'])){
-            Like::create(['id_user' => $_POST['id_user'], 'id_picture' =>  $_POST['id_picture']]);
-            $pictures = DB::table('pictures')->where('id_event', '=',  $_POST['id_picture'])->get();
-            $pictures = json_decode($pictures, true);
-            $n = $_POST['id_event'];
-            $url = "/eventPicture".$n;
-            echo $url;
-            return redirect($url);
-
-
+    public function sign()
+    {
+        if (empty(Session::get('user_id'))){
+            return redirect('/SignIn');
         }
+
+        $id_events = $_POST['id'];
+
+        $id_users = Session::get('user_id');
+        $users = User::find($id_users);
+
+        $users->participateEvent()->attach($id_events);
+
+        return redirect('/incoming');
     }
+
+        public function export(){
+            $list = array ($id_events, $id_users);
+            $fp = fopen("export.csv", "w");
+            foreach($list as $fields):
+             fputcsv($fp, $fields);
+             endforeach;
+            fclose($fp);
+            }
 }

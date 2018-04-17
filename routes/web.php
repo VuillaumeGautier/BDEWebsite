@@ -54,7 +54,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::post('/home', 'HomeController@update');
 
-
 Route::get('/shop', 'CartController@getBoutique');
 
 Route::get('/shop/cart', [
@@ -84,18 +83,15 @@ Route::post('/ideabox', 'IdeaController@propose');
 
 Route::get('/proposedevent', 'IdeaController@affichage');
 
-Route::get('/incoming', 'EventController@index');
+Route::get('/incoming', 'EventController@incoming');
 
-Route::get('events', 'eventsController@index');
+Route::post('/incoming', 'likeController@sign');
+
+Route::get('/done', 'EventController@past');
 
 Route::get('/events', function (){
-    return view('Events');
+    return view('Incoming');
 });
-
-Route::get('/postEvent', 'postEventController@get');
-Route::post('/postEvent', 'postEventController@post');
-
-Route::get('/events/coming/{id}', 'EventController@index');
 
 Route::get('/events/done', 'EventController@index');
 

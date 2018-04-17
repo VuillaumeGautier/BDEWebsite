@@ -34,6 +34,11 @@ class IdeaController extends Controller{
     }
 }
 
+    function report()
+    {
+
+    }
+
     function affichage()
     {
         if (empty(Session::get('user_id'))){

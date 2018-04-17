@@ -4,9 +4,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
-    public function user_bde()
+    public function user()
     {
-        return $this->hasOne(user_bde::class);
+        return $this->hasOne( User::class);
     }
 
     public function picture()
