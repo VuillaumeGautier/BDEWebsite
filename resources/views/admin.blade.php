@@ -26,6 +26,21 @@
 
         <button id="show-users">Show users</button>
         <button id="show-orders">Show orders</button>
+        <br>
+
+        <form method="post" action="/Admin/ChangeRight">
+
+
+                <p>Email : <input type="text" id="email"></p>
+
+                <p>Right : <input type="text" id="right"></p>
+
+                <button id="change-right" type="submit" >Change Right</button>
+
+
+
+        </form>
+
 
 
 
@@ -60,4 +75,5 @@
             $("#container-table").replaceWith(data);
         });
     });
+
 </script>

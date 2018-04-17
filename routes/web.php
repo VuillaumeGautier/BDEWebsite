@@ -41,7 +41,7 @@ Route::get('Admin/ShowUser','UserController@showUserTable');
 
 Route::get('Admin/ShowOrder','UserController@showOrderTable');
 
-Route::get('Admin/ChangeRight','UserController@changeRight');
+Route::post('Admin/ChangeRight','UserController@changeRight');
 
 
 Route::get('/connexion', 'UserController@index');

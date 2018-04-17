@@ -231,15 +231,16 @@ class UserController
     }
 
 
-    function changeRight($mail, $right){
+    function changeRight(){
 
         $user = User::where(
-            'mail', '=',$mail
+            'mail', '=',$_POST['email']
         )->first();
 
 
-        $user->rights = $right;
+        $user->rights = $_POST['right'];
 
+        return view('admin');
 
     }
 
