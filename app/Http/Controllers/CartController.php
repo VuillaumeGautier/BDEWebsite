@@ -22,7 +22,18 @@ class CartController extends Controller
 
     public function getBoutique(){
 
-        return view('shop');
+        $products = Product::all();
+
+        $types = [];
+
+        foreach ($products as $product){
+
+            if(!in_array($product->type,$types)){
+                $types[] = $product->type;
+            }
+        }
+
+        return view('shop', ['types' => $types]);
     }
 
     /*
@@ -192,5 +203,32 @@ class CartController extends Controller
         setcookie("cart", null, 1);;
 
         return view('shop');
+    }
+
+    function delete(){
+
+        if (empty(Session::get('user_id'))){
+            return redirect('/SignIn');
+        }
+        if (Session::get('user_id') == 2){
+            return redirect('/SignIn');
+        }
+
+        $product = Product::find($_GET['product']);
+
+        $product->delete();
+
+        return redirect('/shop');
+    }
+
+    function add(){
+
+        if (empty(Session::get('user_id'))){
+            return redirect('/SignIn');
+        }
+        if (Session::get('user_id') == 2){
+            return redirect('/SignIn');
+        }
+
     }
 }

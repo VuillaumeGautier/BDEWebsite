@@ -83,9 +83,9 @@ Route::post('/remove',[
     'as' => 'product.remove'
 ]);
 
-Route::post('/shop/delete', 'CartController@delete');
+Route::get('/shop/delete', 'CartController@delete');
 
-Route::post('/shop/add', 'CartController@add');
+Route::get('/shop/add', 'CartController@add');
 
 //EndShop
 

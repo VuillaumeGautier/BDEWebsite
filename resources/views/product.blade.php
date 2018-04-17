@@ -20,9 +20,17 @@
     <a href="/shop/cart">CART</a>
 </div>
 
+@if($del == true)
+    <div>
+        <a href="/shop/delete?product={{$id}}"></a>
+    </div>
+@endif
+
 <div>
     {{$name}}
 </div>
+
+
 
 <div class="row">
 

@@ -21,8 +21,9 @@
     Sort by type :
     <select class="selectpicker" id="type-selector">
         <option value="none">None</option>
-        <option value="cloth">Cloth</option>
-        <option value="goodies">Goodies</option>
+        @foreach($types as $type)
+            <option value="{{$type}}">{{$type}}</option>
+        @endforeach
     </select>
 
 </div>
