@@ -3,10 +3,6 @@ footer
     font-family: Lato;
     border-top: 2px solid #999999;
     background-color: #cc0000;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
 }
 
 header

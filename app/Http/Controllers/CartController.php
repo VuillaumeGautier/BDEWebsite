@@ -62,6 +62,7 @@ class CartController extends Controller
             return redirect('/SignIn');
         }
 
+        $total = 0;
 
         if(isset($_COOKIE["cart"])){
             $cart = unserialize($_COOKIE["cart"]);
@@ -72,13 +73,14 @@ class CartController extends Controller
                 $prod = Product::find($product);
                 $item = ['name' => $prod->name, 'number' => $number, 'price' => $prod->price, 'id' => $prod->id_products];
                 $items[] = $item;
+                $total += $number*$prod->price;
             }
 
         }else{
             $items = [];
         }
 
-        return view('cart', ['items' => $items]);
+        return view('cart', ['items' => $items, 'total' => $total]);
 
 
     }

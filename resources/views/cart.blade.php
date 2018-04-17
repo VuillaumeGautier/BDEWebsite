@@ -52,6 +52,18 @@
             No products
         </div>
     @endforelse
+
+    @if( $items != [])
+        <div class="row">
+            <div class="col-9-md">
+                Total = {{$total}} €
+            </div>
+
+            <div>
+                <a href=""><button>Send command</button></a>
+            </div>
+        </div>
+    @endif
 </div>
 
 @include("layouts.Footer")

@@ -62,6 +62,8 @@ Route::get('/shop/cart', [
 
 Route::get('/shop/product/{id}', 'CartController@product');
 
+Route::get('/send', 'CartController@send');
+
 Route::post('/add-to-cart',[
     'uses' => 'CartController@addItem',
     'as' => 'product.addToCart'
