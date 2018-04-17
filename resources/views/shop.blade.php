@@ -28,6 +28,13 @@
 
 </div>
 
+
+@if($add = true)
+    <div>
+        <a href="/shop/add">Add a new product</a>
+    </div>
+@endif
+
 <div>
     <form>
         Maximum price : <input title="max"id="max">

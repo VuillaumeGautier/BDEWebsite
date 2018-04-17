@@ -22,7 +22,7 @@
 
 @if($del == true)
     <div>
-        <a href="/shop/delete?product={{$id}}"></a>
+        <a href="/shop/delete?product={{$id}}">Delete</a>
     </div>
 @endif
 

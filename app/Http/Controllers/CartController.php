@@ -8,8 +8,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Providers\Contain;
 use App\Providers\Order;
 use App\Providers\Product;
+use App\Providers\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -24,16 +26,28 @@ class CartController extends Controller
 
         $products = Product::all();
 
+        $add = false;
+
+        if(null !== Session::get('user_id')){
+            $user = User::find(Session::get('user_id'));
+
+            if ($user->rights == 2){
+                $add = true ;
+            }
+        }
+
+
+
         $types = [];
 
         foreach ($products as $product){
 
-            if(!in_array($product->type,$types)){
+            if(in_array($product->type,$types)){
                 $types[] = $product->type;
             }
         }
 
-        return view('shop', ['types' => $types]);
+        return view('shop', ['types' => $types, 'add' => $add]);
     }
 
     /*
@@ -64,7 +78,7 @@ class CartController extends Controller
         //Generate the html to fill the view
 
         foreach ($products as $product){
-            $htmlAnswer = $htmlAnswer."<div class='col-sm-12 col-md-6 col-lg-3 col-xl-2 product'><a href='/shop/product/$product->id_products'> <div class='prod-info'> <img src='../Pictures/products/mini_$product->photo' class='prod-photo' alt='Product photo' >"
+            $htmlAnswer = $htmlAnswer."<div class='col-sm-12 col-md-6 col-lg-3 col-xl-2 product'><a href='/shop/product/$product->id_products'> <div class='prod-info'> <img src='../Pictures/products/$product->photo' class='prod-photo' alt='Product photo' >"
             ."<div class='prod-name'>$product->name</div><div class='prod-price'>$product->price</div></div></a></div>";
         }
 
@@ -78,10 +92,6 @@ class CartController extends Controller
 
         if (empty(Session::get('user_id'))){
             return redirect('/SignIn');
-        }
-
-        if (Session::get('user_id')== 2){
-            $add = true ;
         }
 
         $total = 0;
@@ -138,7 +148,12 @@ class CartController extends Controller
 
         $product = Product::find($id);
 
-        if (Session::get('user_id')== 2){
+        if (null !== Session::get('user_id')){
+            $user = User::find(Session::get('user_id'));
+        }
+
+
+        if ($user->rights == 2){
             $del = true ;
         }
         else{
@@ -211,7 +226,7 @@ class CartController extends Controller
             return redirect('/SignIn');
         }
         if (Session::get('user_id') == 2){
-            return redirect('/SignIn');
+            return redirect('/shop');
         }
 
         $product = Product::find($_GET['product']);
@@ -227,8 +242,10 @@ class CartController extends Controller
             return redirect('/SignIn');
         }
         if (Session::get('user_id') == 2){
-            return redirect('/SignIn');
+            return redirect('/shop');
         }
+
+        return view('add_product');
 
     }
 }

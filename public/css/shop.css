@@ -6,8 +6,8 @@
 }
 
 .prod-photo{
-    height: auto;
-    width : 70%;
+    height: 200px;
+    width : 200px;
     object-fit: contain;
 }
 
