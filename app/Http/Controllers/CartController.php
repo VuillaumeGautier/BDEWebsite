@@ -26,6 +26,8 @@ class CartController extends Controller
 
         $products = Product::all();
 
+        //Check the rights to show or not the add product link
+
         $add = false;
 
         if(null !== Session::get('user_id')){
@@ -36,7 +38,7 @@ class CartController extends Controller
             }
         }
 
-
+        //take all types of products to sort them
 
         $types = [];
 
@@ -49,6 +51,7 @@ class CartController extends Controller
 
         return view('shop', ['types' => $types, 'add' => $add]);
     }
+
 
     /*
      * This function send all products as JSON if the get value is none, and send all products with the specified type only
@@ -116,7 +119,13 @@ class CartController extends Controller
 
     }
 
+    /*
+     * This function add an item to the cart
+     */
+
     public function addItem (){
+
+        //Check if the user is connected
 
         if (empty(Session::get('user_id'))){
             return redirect('/SignIn');
@@ -125,6 +134,8 @@ class CartController extends Controller
         $product = Product::find($_POST["product"]);
 
         $number = $_POST["number"];
+
+        //Add the product and the quantity in the cart cookie. Add more if it already in.
 
         if(isset($_COOKIE["cart"])){
             $cart = unserialize($_COOKIE["cart"]);
@@ -146,12 +157,15 @@ class CartController extends Controller
 
     public function product($id){
 
+
+
         $product = Product::find($id);
 
         if (null !== Session::get('user_id')){
             $user = User::find(Session::get('user_id'));
         }
 
+        //Check rights to show the delete button
 
         if ($user->rights == 2){
             $del = true ;
@@ -168,6 +182,10 @@ class CartController extends Controller
 
     public function getAddOne($id){
     }
+
+    /*
+     * This function change the quantity of products in the cart cookie. It removes entirely the product if there is 0
+     */
 
     public function getRemoveItem(){
 
@@ -195,6 +213,10 @@ class CartController extends Controller
         return redirect('/shop/cart');
     }
 
+    /*
+     * Make the order in the db from the cookie
+     */
+
     function send(){
 
         if (empty(Session::get('user_id'))){
@@ -220,6 +242,10 @@ class CartController extends Controller
         return view('shop');
     }
 
+    /*
+     * Delete a product. Doesn't work if an order use the product
+     */
+
     function delete(){
 
         if (empty(Session::get('user_id'))){
@@ -235,6 +261,10 @@ class CartController extends Controller
 
         return redirect('/shop');
     }
+
+    /*
+     * Show the add product form with rights restriction
+     */
 
     function add(){
 
