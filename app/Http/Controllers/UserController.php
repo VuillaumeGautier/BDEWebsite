@@ -147,8 +147,30 @@ class UserController
     function admin()
     {
 
-        return view('admin');
 
+        if (Session::get('user_id') != 1)
+        {
+
+
+            if (empty(Session::get('user_id')))
+            {
+
+                return view('SignUp');
+
+
+            }
+
+
+
+
+            return view('SignUp');
+
+
+        }
+
+        else {
+            return view('admin');
+        }
     }
 
     function showOrderTable(){

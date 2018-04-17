@@ -10,11 +10,26 @@
 
 }
 
+
+
     else {
 
+
+        if (Session::get('user_id') == 1)
+        {
+
+            echo '<div class="col-sm-12" id="header-right">
+             <a title="Logout" href="/logout"> Logout</a>  <a title="Admin-Panel" href="/Admin">Admin Panel</a>
+             </div>';
+
+
+        }
+        else
+            {
         echo '<div class="col-sm-12" id="header-right">
              <a title="Logout" href="/logout"> Logout</a>
              </div>';
+            }
 
 
     }
