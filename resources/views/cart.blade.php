@@ -4,6 +4,7 @@
     <title>Shop</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/site.css">
     <link rel="stylesheet" href="../css/shop.css">
 
@@ -18,19 +19,23 @@
     </div>
 
     <div>
-    <a href="/shop/basket">CART</a>
+    <a href="/shop/cart">CART</a>
     </div>
 </div>
 
 <div class="container">
     @forelse ($items as $item)
-        <div class="row">
-            <div class="col-2-md">
+        <div class="row cart_entry">
+            <div class="col-md-2">
                 {{$item['name']}}
             </div>
 
-            <div class="col-2-md">
+            <div class="col-md-2">
                 Quantity : {{$item['number']}}
+            </div>
+
+            <div class="col-md-2">
+                Price : {{$item['price']}}
             </div>
 
             <form action="/remove" method="post">

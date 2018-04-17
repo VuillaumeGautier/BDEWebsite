@@ -79,7 +79,7 @@ class CartController extends Controller
         }
 
         return view('cart', ['items' => $items]);
-        //return view('home');
+
 
     }
 
@@ -130,28 +130,23 @@ class CartController extends Controller
             return redirect('/SignIn');
         }
 
-        $product = Product::find($_POST["product"])->first();
+        $product = Product::find($_POST["product"]);
 
         $number = $_POST["number"];
 
         if(isset($_COOKIE["cart"])) {
             $cart = unserialize($_COOKIE["cart"]);
-            if (array_key_exists($product->id, $cart)) {
+            if (array_key_exists($product->id_products, $cart)) {
                 if($number == 0) {
-                    unset($cart[$product->id]);
+                    unset($cart[$product->id_products]);
                 }else{
-                    $cart[$product->id] = $number;
+                    $cart[$product->id_products] = $number;
                 }
             }
         }
         setcookie("cart",serialize($cart));
 
-        foreach ($cart as $product => $number){
-            $prod = Product::find($product);
-            $item = ['name' => $prod->name, 'number' => $number, 'price' => $prod->price, 'id' => $prod->id_products];
-            $items[] = $item;
-        }
 
-        return redirect('/shop/basket');
+        return redirect('/shop/cart');
     }
 }
