@@ -240,7 +240,9 @@ class UserController
 
         $user->rights = $_POST['right'];
 
-        return view('admin');
+        $user->save();
+
+        return redirect()->action('UserController@admin');
 
     }
 

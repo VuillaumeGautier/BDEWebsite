@@ -18,7 +18,6 @@
 @include("layouts.Header")
 
 
-@csrf
 
 
 
@@ -30,10 +29,13 @@
 
         <form method="post" action="/Admin/ChangeRight">
 
+            @csrf
 
-                <p>Email : <input type="text" id="email"></p>
 
-                <p>Right : <input type="text" id="right"></p>
+
+                <p>Email : <input type="email" id="email" name="email"></p>
+
+                <p>Right : <input type="text" id="right" name="right"></p>
 
                 <button id="change-right" type="submit" >Change Right</button>
 
