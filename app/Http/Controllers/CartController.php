@@ -78,12 +78,6 @@ class CartController extends Controller
             $items = [];
         }
 
-        foreach ($items as $item){
-            foreach ($item as $chara){
-                echo $chara . " ";
-            }
-            echo "    ";
-        }
         return view('cart', ['items' => $items]);
         //return view('home');
 
@@ -152,5 +146,12 @@ class CartController extends Controller
         }
         setcookie("cart",serialize($cart));
 
+        foreach ($cart as $product => $number){
+            $prod = Product::find($product);
+            $item = ['name' => $prod->name, 'number' => $number, 'price' => $prod->price, 'id' => $prod->id_products];
+            $items[] = $item;
+        }
+
+        return redirect('/shop/basket');
     }
 }

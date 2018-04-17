@@ -52,7 +52,7 @@ Route::post('/home', 'HomeController@update');
 
 Route::get('/shop', 'CartController@getBoutique');
 
-Route::get('/shop/basket', [
+Route::get('/shop/cart', [
     'uses' => 'CartController@getCart',
     'as' => 'product.basket'
 ]);
