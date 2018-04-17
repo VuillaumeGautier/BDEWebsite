@@ -153,30 +153,42 @@ class UserController
 
     function showOrderTable(){
 
-        $htmlresponse =   "<div class='table-responsive'>"
-            ."<table class='table'><thead><tr><th>Name</th><th>Lastname</th>
-<th>Order</th></tr></thead><tbody>";
+        $htmlresponse =   "<div class='container' id='container-table'>". "<div class='table-responsive'>"
+            ."<table class='table'><thead><tr><th>Order</th><th>Name</th>
+<th>First Name</th></tr></thead><tbody>";
 
 
-        $user = \App\Providers\User::all();
+        $order =\App\Providers\Order::all();
 
 
-
-        foreach ($user as $value)
+        foreach ($order as $orders)
         {
+            $user =\App\Providers\User::all();
 
-            $order = $value->orders();
+            $name = 0;
+            $fname = 0;
+
+                foreach ($user as $users)
+                {
+                    if ($orders->id_users == $users->id_users)
+                    {
+                        $name = $users->name;
+                        $fname = $users->fname;
 
 
-            foreach ($order as $stock) {
+                    }
+
+
+                }
+
+
 
                 $htmlresponse = $htmlresponse . "<tr>" .
-                    "<th>" . $value->name . "</th>" .
-                    "<th>" . $value->fname . "</th>" .
-                    "<th>" . $stock->id_orders . "</th>" .
+                    "<th>" . $orders->id_orders . "</th>" .
+                    "<th>" . $name . "</th>" .
+                   "<th>" . $fname . "</th>" .
                     "</tr>";
 
-            }
 
 
         }
@@ -190,7 +202,7 @@ class UserController
 
     function showUserTable(){
 
-        $htmlresponse =   "<div class='table-responsive'>"
+        $htmlresponse =   "<div class='container' id='container-table'>"."<div class='table-responsive'>"
                     ."<table class='table'><thead><tr><th>Firstname</th><th>Lastname</th>
 <th>Mail</th><th>Right</th></tr></thead><tbody>";
 
@@ -215,6 +227,22 @@ class UserController
 
 
         return response()->json($htmlresponse);
+
+    }
+
+
+    function changeRight(){
+
+        $user = User::where(
+            'mail', '=',$_POST['email']
+        )->first();
+
+
+        $user->rights = $_POST['right'];
+
+        $user->save();
+
+        return redirect()->action('UserController@admin');
 
     }
 

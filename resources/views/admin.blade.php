@@ -1,12 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Nicolas local
- * Date: 17/04/2018
- * Time: 08:57
- */
-
-?>
 
 
 <html>
@@ -27,13 +18,31 @@
 @include("layouts.Header")
 
 
-@csrf
+
 
 
     <div id="button-container" class="container">
 
         <button id="show-users">Show users</button>
         <button id="show-orders">Show orders</button>
+        <br>
+
+        <form method="post" action="/Admin/ChangeRight">
+
+            @csrf
+
+
+
+                <p>Email : <input type="email" id="email" name="email"></p>
+
+                <p>Right : <input type="text" id="right" name="right"></p>
+
+                <button id="change-right" type="submit" >Change Right</button>
+
+
+
+        </form>
+
 
 
 
@@ -68,4 +77,5 @@
             $("#container-table").replaceWith(data);
         });
     });
+
 </script>

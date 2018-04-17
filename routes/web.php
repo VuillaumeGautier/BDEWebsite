@@ -28,16 +28,21 @@ Route::get('/SignUp','UserController@inscriptionIndex');
 
 Route::get('/SignIn','UserController@loginIndex');
 
+
 Route::post('/postLogin',[
     'uses' => 'UserController@login',
     'as' => 'login.post'
 ]);
+
 
 Route::get('/Admin','UserController@admin');
 
 Route::get('Admin/ShowUser','UserController@showUserTable');
 
 Route::get('Admin/ShowOrder','UserController@showOrderTable');
+
+Route::post('Admin/ChangeRight','UserController@changeRight');
+
 
 Route::get('/connexion', 'UserController@index');
 
@@ -55,6 +60,7 @@ Route::post('/home', 'HomeController@update');
 
 //Shop part
 
+
 Route::get('/shop', 'CartController@getBoutique');
 
 Route::get('/shop/cart', [
@@ -63,6 +69,7 @@ Route::get('/shop/cart', [
 ]);
 
 Route::get('/shop/product/{id}', 'CartController@product');
+
 
 Route::get('/send', 'CartController@send');
 
@@ -90,13 +97,18 @@ Route::post('/ideabox', 'IdeaController@propose');
 
 Route::get('/proposedevent', 'IdeaController@affichage');
 
-Route::get('/PastEvents', 'EventController@past');
+Route::get('/incoming', 'EventController@index');
 
-Route::get('/incoming', 'EventController@incoming');
+Route::get('events', 'eventsController@index');
+
+Route::get('/events', function (){
+    return view('Events');
+});
 
 Route::get('/postEvent', 'postEventController@get');
 Route::post('/postEvent', 'postEventController@post');
 
+Route::get('/events/coming/{id}', 'EventController@index');
 
 Route::get('/events/done', 'EventController@index');
 
