@@ -8,8 +8,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Providers\Contain;
 use App\Providers\Order;
 use App\Providers\Product;
+use App\Providers\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -24,17 +26,32 @@ class CartController extends Controller
 
         $products = Product::all();
 
+        //Check the rights to show or not the add product link
+
+        $add = false;
+
+        if(null !== Session::get('user_id')){
+            $user = User::find(Session::get('user_id'));
+
+            if ($user->rights == 2){
+                $add = true ;
+            }
+        }
+
+        //take all types of products to sort them
+
         $types = [];
 
         foreach ($products as $product){
 
-            if(!in_array($product->type,$types)){
+            if(in_array($product->type,$types)){
                 $types[] = $product->type;
             }
         }
 
-        return view('shop', ['types' => $types]);
+        return view('shop', ['types' => $types, 'add' => $add]);
     }
+
 
     /*
      * This function send all products as JSON if the get value is none, and send all products with the specified type only
@@ -64,7 +81,7 @@ class CartController extends Controller
         //Generate the html to fill the view
 
         foreach ($products as $product){
-            $htmlAnswer = $htmlAnswer."<div class='col-sm-12 col-md-6 col-lg-3 col-xl-2 product'><a href='/shop/product/$product->id_products'> <div class='prod-info'> <img src='../Pictures/products/mini_$product->photo' class='prod-photo' alt='Product photo' >"
+            $htmlAnswer = $htmlAnswer."<div class='col-sm-12 col-md-6 col-lg-3 col-xl-2 product'><a href='/shop/product/$product->id_products'> <div class='prod-info'> <img src='../Pictures/products/$product->photo' class='prod-photo' alt='Product photo' >"
             ."<div class='prod-name'>$product->name</div><div class='prod-price'>$product->price</div></div></a></div>";
         }
 
@@ -78,10 +95,6 @@ class CartController extends Controller
 
         if (empty(Session::get('user_id'))){
             return redirect('/SignIn');
-        }
-
-        if (Session::get('user_id')== 2){
-            $add = true ;
         }
 
         $total = 0;
@@ -106,7 +119,13 @@ class CartController extends Controller
 
     }
 
+    /*
+     * This function add an item to the cart
+     */
+
     public function addItem (){
+
+        //Check if the user is connected
 
         if (empty(Session::get('user_id'))){
             return redirect('/SignIn');
@@ -115,6 +134,8 @@ class CartController extends Controller
         $product = Product::find($_POST["product"]);
 
         $number = $_POST["number"];
+
+        //Add the product and the quantity in the cart cookie. Add more if it already in.
 
         if(isset($_COOKIE["cart"])){
             $cart = unserialize($_COOKIE["cart"]);
@@ -136,9 +157,17 @@ class CartController extends Controller
 
     public function product($id){
 
+
+
         $product = Product::find($id);
 
-        if (Session::get('user_id')== 2){
+        if (null !== Session::get('user_id')){
+            $user = User::find(Session::get('user_id'));
+        }
+
+        //Check rights to show the delete button
+
+        if ($user->rights == 2){
             $del = true ;
         }
         else{
@@ -153,6 +182,10 @@ class CartController extends Controller
 
     public function getAddOne($id){
     }
+
+    /*
+     * This function change the quantity of products in the cart cookie. It removes entirely the product if there is 0
+     */
 
     public function getRemoveItem(){
 
@@ -180,6 +213,10 @@ class CartController extends Controller
         return redirect('/shop/cart');
     }
 
+    /*
+     * Make the order in the db from the cookie
+     */
+
     function send(){
 
         if (empty(Session::get('user_id'))){
@@ -205,13 +242,17 @@ class CartController extends Controller
         return view('shop');
     }
 
+    /*
+     * Delete a product. Doesn't work if an order use the product
+     */
+
     function delete(){
 
         if (empty(Session::get('user_id'))){
             return redirect('/SignIn');
         }
         if (Session::get('user_id') == 2){
-            return redirect('/SignIn');
+            return redirect('/shop');
         }
 
         $product = Product::find($_GET['product']);
@@ -221,14 +262,20 @@ class CartController extends Controller
         return redirect('/shop');
     }
 
+    /*
+     * Show the add product form with rights restriction
+     */
+
     function add(){
 
         if (empty(Session::get('user_id'))){
             return redirect('/SignIn');
         }
         if (Session::get('user_id') == 2){
-            return redirect('/SignIn');
+            return redirect('/shop');
         }
+
+        return view('add_product');
 
     }
 }
