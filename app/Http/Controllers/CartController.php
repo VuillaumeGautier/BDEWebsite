@@ -62,13 +62,30 @@ class CartController extends Controller
             return redirect('/SignIn');
         }
 
+
         if(isset($_COOKIE["cart"])){
             $cart = unserialize($_COOKIE["cart"]);
+
+            $items = array();
+
+            foreach ($cart as $product => $number){
+                $prod = Product::find($product);
+                $item = ['name' => $prod->name, 'number' => $number, 'price' => $prod->price, 'id' => $prod->id_products];
+                $items[] = $item;
+            }
+
         }else{
-            $cart = [];
+            $items = [];
         }
 
-        return view('cart', ['cart'=>$cart]);
+        foreach ($items as $item){
+            foreach ($item as $chara){
+                echo $chara . " ";
+            }
+            echo "    ";
+        }
+        return view('cart', ['items' => $items]);
+        //return view('home');
 
     }
 
@@ -78,25 +95,25 @@ class CartController extends Controller
             return redirect('/SignIn');
         }
 
-        $product = Product::find($_POST["product"])->first();
+        $product = Product::find($_POST["product"]);
 
-        $number = $_SESSION["number"];
+        $number = $_POST["number"];
 
         if(isset($_COOKIE["cart"])){
             $cart = unserialize($_COOKIE["cart"]);
-            if(array_key_exists ($product->name,$cart)){
-                $cart[$product->name] = $cart[$product->name] + $number;
+            if(array_key_exists ($product->id_products,$cart)){
+                $cart[$product->id_products] = $cart[$product->id_products] + $number;
             }else{
-                $cart[$product->name] = $number;
+                $cart[$product->id_products] = $number;
             }
 
         }else {
-            $cart[$product->name] = $number;
+            $cart[$product->id_products] = $number;
         }
 
         setcookie("cart",serialize($cart));
 
-        return redirect('/shop/product/'.$product->id);
+        return redirect('/shop/product/'.$product->id_products);
 
     }
 
@@ -104,7 +121,7 @@ class CartController extends Controller
 
         $product = Product::find($id);
 
-        return view('product',['name'=>$product->name,'img'=>$product->photo, 'desc'=>$product->description, 'price'=>$product->price]);
+        return view('product',['name'=>$product->name,'img'=>$product->photo, 'desc'=>$product->description, 'price'=>$product->price, 'id'=>$id]);
     }
 
     public function getReduceOne($id){
@@ -121,15 +138,15 @@ class CartController extends Controller
 
         $product = Product::find($_POST["product"])->first();
 
-        $number = $_SESSION["number"];
+        $number = $_POST["number"];
 
         if(isset($_COOKIE["cart"])) {
             $cart = unserialize($_COOKIE["cart"]);
-            if (array_key_exists($product->name, $cart)) {
+            if (array_key_exists($product->id, $cart)) {
                 if($number == 0) {
-                    unset($cart[$product->name]);
+                    unset($cart[$product->id]);
                 }else{
-                    $cart[$product->name] = $number;
+                    $cart[$product->id] = $number;
                 }
             }
         }
