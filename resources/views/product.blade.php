@@ -37,8 +37,13 @@
 </div>
 
 <div>
-
-
+    <form action="/add-to-cart" method="post">
+        {{ csrf_field() }}
+        <input type="hidden" name="product" value="{{$id}}">
+        Number of products
+        <input type="text" name="number">
+        <input type="submit" value="Add to cart">
+    </form>
 </div>
 
 
