@@ -24,7 +24,7 @@
                     <div class="panel-heading">
                         {{$row['name']}}
                         <div class="btn-group" style="float:right;">
-                            @if($_SESSION =! 0)
+                            @if($_SESSION =! 1){
                             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-cog"></span>
                                 <span class="sr-only">Toggle Dropdown</span>
@@ -34,7 +34,22 @@
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Delete</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>Download List</a></li>
+
+                                <form action="/getUserEvent" method="post">
+
+
+                                    <input type="text" class="form-control" name="event" id="event"  placeholder="Confirm your Password"/>
+
+
+                                    <button id="button" type="submit" class="btn btn-primary">
+                                        {{ __('Dowload') }}
+                                    </button>
+
+
+
+                                </form>
+
+
                                 @endif
                             </ul>
                         </div>
@@ -78,10 +93,4 @@
 @include("layouts.Footer")
 
 </body>
-<script type="text/javascript">
-    function afficher(){
-        alert("Downloaded List");
-    }
-</script>
-
 </html>

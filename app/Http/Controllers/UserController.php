@@ -12,6 +12,7 @@
 namespace App\Http\Controllers;
 
 use App\Providers\Contain;
+use App\Providers\Event;
 use App\Providers\Product;
 use App\Providers\User;
 use Illuminate\Database\Eloquent\Model;
@@ -66,7 +67,7 @@ class UserController
 
         $user->save();
 
-        return view('mail');
+        return view('home');
 
     }
 
@@ -284,18 +285,57 @@ class UserController
             $quantity = 0;
 
             foreach ($contains as $contain){
-
+                $quantity += $contain->Quantity;
             }
 
-            $product->quantity = $quantity;
-
+            $prods[$product->id_products] = $quantity;
         }
 
+        arsort($prods);
+        $sorted = array_keys($prods);
+        $sells[0] = Product::find($sorted[0]);
+        $sells[1] = Product::find($sorted[1]);
+        $sells[2] = Product::find($sorted[2]);
 
+        $events = Event::all();
 
+        foreach ($events as $event) {
+            $event_date = $event->event_date;
 
+            $event->participate=false;
+
+            if(strtotime($event_date)>time()){
+                $incoming_event[$event->id_events]=strtotime($event_date);
+            }
+        }
+
+        arsort($incoming_event);
+        $sorted = array_keys($incoming_event);
+        $inc[0] = Event::find($sorted[0]);
+        $inc[1] = Event::find($sorted[1]);
+        $inc[2] = Event::find($sorted[2]);
+
+        foreach ($events as $event) {
+            $event_date = $event->event_date;
+
+            $event->participate=false;
+
+            if(strtotime($event_date)<time()){
+                $passed[$event->id_events]=strtotime($event_date);
+            }
+        }
+
+        arsort($passed);
+        $sorted = array_keys($passed);
+        $past[0] = Event::find($sorted[0]);
+        $past[1] = Event::find($sorted[1]);
+        $past[2] = Event::find($sorted[2]);
+
+        return view('home', ['past' => $past, 'inc' => $inc, 'sells' => $sells]);
 
     }
+
+
 
 }
 
