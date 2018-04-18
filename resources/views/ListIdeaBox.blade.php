@@ -17,16 +17,26 @@
 <div class="Proposed">
 
 <ul>
-    @foreach($idees as $idee)
-        <div>{{ $idee ->name}}</div>
-        <div>{{ $idee ->proposed_date}}</div>
-        <div>{{ $idee ->thumbnail}}</div>
-        <div>{{ $idee ->id_users}}</div>
-        <div>{{ $idee ->description}}</div>
-</ul>
+    @foreach($ideas as $idea)
+        <li>
+            <div>{{ $idea ->name}}</div>
+            <div>{{ $idea ->proposed_date}}</div>
+            <div>{{ $idea ->thumbnail}}</div>
+            <div>{{ $idea ->id_users}}</div>
+            <div>{{ $idea->description}}</div>
+            <form action="/idea/vote" method="post">
+                {{ csrf_field()}}
+                <input name="id" value = "{{$idea['id_proposed_events']}}" type="hidden">
+                <button type="submit"
+                        @if($idea['voted'] == true)
+                        disabled
+                        @endif
+                        id="buttonIns" class="btn btn-default"> Voter </button>
+            </form>
 
+        </li>
     @endforeach
-
+</ul>
 </div>
 
 <a href='http://bdewebsite/ideabox' >

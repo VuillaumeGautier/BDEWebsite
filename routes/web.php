@@ -29,6 +29,8 @@ Route::get('/SignUp','UserController@inscriptionIndex');
 
 Route::get('/SignIn','UserController@loginIndex');
 
+Route::get('/bestSell','UserController@bestProduct');
+
 
 Route::post('/postLogin',[
     'uses' => 'UserController@login',
@@ -58,6 +60,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::post('/home', 'HomeController@update');
+
 
 //Shop part
 
@@ -119,4 +122,4 @@ Route::post('/ideabox', 'IdeaController@propose');
 
 Route::post('/events/signup', 'likeController@sign');
 
-Route::post('/events/signup', 'likeController@sign');
+Route::post('/idea/vote', 'IdeaController@vote');
