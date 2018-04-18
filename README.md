@@ -1,4 +1,1 @@
 # BDEWebsite
-# Membership : 
-
-# Gautier Vuillaume
