@@ -237,9 +237,11 @@ class CartController extends Controller
             $product->orders()->attach($order->id_orders,['Quantity' => $number]);
         }
 
-        setcookie("cart", null, 1);;
+        setcookie("cart", null, 1);
 
-        return view('shop');
+        //Mail
+
+        return redirect('/shop');
     }
 
     /*

@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Session;
 
 class likeController extends Controller
 {
+    /*
+     * This function sing up an user in an event
+     */
+
     public function sign()
     {
         if (empty(Session::get('user_id'))){
