@@ -26,11 +26,11 @@
 <div class="container">
     <div class="row">
         @foreach($inc as $event)
-            <a href="">
+            <a href="/incoming">
                 <div class="col-md-4">
                 <div>{{$event['name']}}</div>
                 <div>
-                    <img src="/Pictures/events/{{$event['thumbnail']}}">
+                    <img src="/Pictures/events/{{$event['thumbnail']}}" height="200px" width="200px">
                 </div>
 
 
@@ -39,14 +39,31 @@
         @endforeach
 
     </div>
-</div>
+    </div>
 </div>
 
 <div class="Separation2" id="Separation2"></div>
 
-<div class="Even2">
-    <div class="titPa"><h2>Past Events</h2></div>
+<div class="row">
 
+    <div class="titIn"><h2>Passed Events</h2></div>
+    <div class="container">
+        <div class="row">
+            @foreach($past as $event)
+                <a href="/done/{{$event['id_events']}}">
+                    <div class="col-md-4">
+                        <div>{{$event['name']}}</div>
+                        <div>
+                            <img src="/Pictures/events/{{$event['thumbnail']}}" height="200px" width="200px">
+                        </div>
+
+
+                    </div>
+                </a>
+            @endforeach
+
+        </div>
+    </div>
 </div>
 
 <div class="Separation3" id="Separation3"></div>
@@ -66,19 +83,20 @@
         <!-- Page 1 -->
         <div class="item active">
             <div class="carousel-page">
-                <img src="/Pictures/LAN_2.jpg" class="img-responsive" style="margin: auto;" />
+                <a href="/shop/product/{{$sells[0]['id_products']}}"><img src="/Pictures/products/{{$sells[0]['photo']}}" height="300px" width="300px" class="img-responsive" style="margin: auto;" /></a>
             </div>
         </div>
         <!-- Page 2 -->
         <div class="item">
-            <div class="carousel-page"><img src="" class="img-responsive img-rounded"
-          style="margin: auto;"  /></div>
+            <div class="carousel-page">*
+                <a href="/shop/product/{{$sells[1]['id_products']}}"><img src="/Pictures/products/{{$sells[1]['photo']}}" height="300px" width="300px" class="img-responsive" style="margin: auto;" /></a>
+            </div>
         </div>
         <!-- Page 3 -->
         <div class="item">
             <div class="carousel-page">
-                <img src="/Pictures/IM_1.jpg" class="img-responsive"
-                     style="margin: auto; "  />
+                <a href="/shop/product/{{$sells[2]['id_products']}}"><img src="/Pictures/products/{{$sells[2]['photo']}}" height="300px" width="300px" class="img-responsive" style="margin: auto;" /></a>
+
             </div>
         </div>
     </div>
