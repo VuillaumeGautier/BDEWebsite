@@ -23,16 +23,23 @@
 <div class="row">
 
 <div class="titIn"><h2>Incoming Events</h2></div>
+<div class="container">
+    <div class="row">
+        @foreach($inc as $event)
+            <a href="">
+                <div class="col-md-4">
+                <div>{{$event['name']}}</div>
+                <div>
+                    <img src="/Pictures/events/{{$event['thumbnail']}}">
+                </div>
 
-    @foreach($inc as $event)
-        <div >
-            <div>{{$event['name']}}</div>
 
+                </div>
+            </a>
+        @endforeach
 
-
-        </div>
-    @endforeach
-
+    </div>
+</div>
 </div>
 
 <div class="Separation2" id="Separation2"></div>
