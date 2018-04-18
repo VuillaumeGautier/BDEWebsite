@@ -14,11 +14,14 @@
 @include("layouts.Header")
 
 <h1>Products</h1>
-
+<div class="container">
 <a href="/shop/cart">CART</a>
+</div>
 
-<div>
-    Sort by type :
+<h2>Sort by type :</h2>
+
+<div class="container" id="select">
+
     <select class="selectpicker" id="type-selector">
         <option value="none">None</option>
         @foreach($types as $type)
@@ -28,14 +31,13 @@
 
 </div>
 
-
 @if($add = true)
     <div>
         <a href="/shop/add">Add a new product</a>
     </div>
 @endif
 
-<div>
+<div class="container" id="price">
     <form>
         Maximum price : <input title="max"id="max">
     </form>

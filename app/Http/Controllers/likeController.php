@@ -23,12 +23,4 @@ class likeController extends Controller
         return redirect('/incoming');
     }
 
-        public function export(){
-            $list = array ($id_events, $id_users);
-            $fp = fopen("export.csv", "w");
-            foreach($list as $fields):
-             fputcsv($fp, $fields);
-             endforeach;
-            fclose($fp);
-            }
 }

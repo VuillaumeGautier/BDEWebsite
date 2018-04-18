@@ -77,7 +77,7 @@
         </div>
         <!-- Page 2 -->
         <div class="item">
-            <div class="carousel-page"><img src="/Pictures/WC_1.jpg" class="img-responsive img-rounded"
+            <div class="carousel-page"><img src="" class="img-responsive img-rounded"
           style="margin: auto;"  /></div>
         </div>
         <!-- Page 3 -->
