@@ -66,7 +66,7 @@ class UserController
 
         $user->save();
 
-        return view('mail');
+        return view('home');
 
     }
 
