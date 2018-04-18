@@ -11,6 +11,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Providers\Contain;
+use App\Providers\Product;
 use App\Providers\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Session;
@@ -265,6 +267,53 @@ class UserController
         $user->save();
 
         return redirect()->action('UserController@admin');
+
+    }
+
+
+    function bestProduct(){
+
+
+        $products = Product::all();
+        $contains = Contain::all();
+        $quantity[]=0;
+        $i = 0;
+        $bestSell[] = 0;
+
+        foreach ($products as $product)
+        {
+            $i++;
+
+            foreach ($contains as $contain){
+
+
+                if ($product->id_products == $contain->id_products) {
+
+
+                    $quantity[$product->id_products] = $quantity[$product->id_products] + $contain->Quantity;
+
+                }
+
+            }
+
+
+        }
+
+        for ($j=0;$j<$i;$j++){
+
+            for ($k = 0;$k <$i;$k++) {
+
+                if ($quantity[$j] < $quantity[$k]){
+
+
+                    $bestSell[$j] = $k;
+
+
+                }
+            }
+        }
+
+        echo $bestSell[1].$bestSell[2].$bestSell[3].$quantity[3];
 
     }
 

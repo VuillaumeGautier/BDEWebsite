@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Providers\Contain;
+use App\Providers\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,4 +27,6 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+
 }

@@ -3,16 +3,6 @@
 
 <html>
 
-
-<?php
-
-
-
-
-
-?>
-
-
 <head>
     <meta charset="utf-8">
     <title>Administration</title>
@@ -43,9 +33,9 @@
 
 
 
-                <p>Email : <input type="email" id="email" name="email"></p>
+                <p>Email : <input type="email" id="email" name="email" required></p>
 
-                <p>Right : <input type="text" id="right" name="right"></p>
+                <p>Right : <input type="text" id="right" name="right" required></p>
 
                 <button id="change-right" type="submit" >Change Right</button>
 
