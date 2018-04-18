@@ -16,36 +16,23 @@
 @include("layouts.Header")
 
 <div class="Description, col-6-md" id="Descritpion">
-    Un bureau des étudiants (BDE) ou bureau des élèves,
-    est une association étudiante d'une même université ou école,
-    élue par leurs adhérents, et qui s'occupe d'organiser les activités
-    extra-scolaires telles que des soirées étudiantes, l'accueil des nouveaux
-    élèves, et diverses activités allant des rencontres sportives
+    Welcome to the website of the BDE of CESI.Exia Nancy, feel free to browse our shop or our incoming and passed events =)
 </div>
 
 <div class="Separation1" id="Separation1"></div>
 <div class="row">
 
-<div class="Even1, col-md-4">
-    <div class="titIn"><h2>Incoming Events</h2></div>
-        <div class="descri11">
-            <div class="wallp1">
-            <div class="ZoneText, col-1-md" id="ZoneText1">
-             Barbecue Inter-Promotion
-            </div>
-        </div>
-        </div>
-</div>
+<div class="titIn"><h2>Incoming Events</h2></div>
 
-<div class="Even11, col-md-5">
-    <div class="descri12">
-        <div class="ZoneText2" id="ZoneText2">
-            Barbecue Inter-Promotion
+    @foreach($inc as $event)
+        <div >
+            <div>{{$event['name']}}</div>
+
+
 
         </div>
-    </div>
+    @endforeach
 
-</div>
 </div>
 
 <div class="Separation2" id="Separation2"></div>
