@@ -13,22 +13,24 @@ class likeController extends Controller
             return redirect('/SignIn');
         }
 
-        $id_events = $_POST['id'];
+        $id_event = $_POST['id'];
 
         $id_users = Session::get('user_id');
         $users = User::find($id_users);
 
-        $users->participateEvent()->attach($id_events);
+        $users->participateEvent()->attach($id_event);
 
         return redirect('/incoming');
     }
 
-        public function export(){
-            $list = array ($id_events, $id_users);
-            $fp = fopen("export.csv", "w");
-            foreach($list as $fields):
-             fputcsv($fp, $fields);
-             endforeach;
-            fclose($fp);
-            }
+    public function export(){
+
+        $list = array ($id_events, $id_users);
+        $fp = fopen("export.csv", "w");
+        foreach($list as $fields):
+         fputcsv($fp, $fields);
+         endforeach;
+        fclose($fp);
+    }
+
 }

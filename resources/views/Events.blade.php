@@ -22,7 +22,7 @@
             @foreach($events as $row)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href=<?php echo("/Pictures/events".$row['id_events']) ?> class="MakaleYazariAdi"><?php echo $row['name']?> </a>
+                        {{$row['name']}}
                         <div class="btn-group" style="float:right;">
                             @if($_SESSION =! 1){
                             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,7 +55,7 @@
                                 <div class="clearfix"></div>
 
                                 <div class="button">
-                                    <form id="inscription" method="post">
+                                    <form id="inscription" method="post" action="/events/signup">
                                         {{ csrf_field()}}
                                         <input name="id" type="hidden" value="{{$row['id_events']}}">
                                         <button type="submit"

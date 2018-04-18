@@ -113,6 +113,10 @@ Route::get('/events/coming/{id}', 'EventController@index');
 
 Route::get('/events/done', 'EventController@index');
 
-Route::get('/events/done/{id}', 'EventController@index');
+Route::get('/done/{id}', 'PassedController@getEvent');
 
 Route::post('/ideabox', 'IdeaController@propose');
+
+Route::post('/events/signup', 'likeController@sign');
+
+Route::post('/events/signup', 'likeController@sign');
