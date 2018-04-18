@@ -132,7 +132,7 @@ This is the code of the validation script of the form
             return false;
         }
 
-        var x = document.forms("email").value;
+        var x = document.getElementById("email").value;
         if (x == "") {
             alert("Email must be filled out");
             return false;
@@ -153,6 +153,49 @@ This is the code of the validation script of the form
             alert("Passwords not the same");
             return false;
         }
+
+
+        // Validate lowercase letters
+        var lowerCaseLetters = /[a-z]/g;
+        if(document.getElementById("password").value.match(lowerCaseLetters)) {
+
+        } else {
+
+            alert("Password need a lowercase letter");
+            return false;
+
+        }
+
+        // Validate capital letters
+        var upperCaseLetters = /[A-Z]/g;
+        if(document.getElementById("password").value.match(upperCaseLetters)) {
+
+        } else {
+
+            alert("Password need a capital letter");
+            return false;
+        }
+
+        // Validate numbers
+        var numbers = /[0-9]/g;
+        if(document.getElementById("password").value.match(numbers)) {
+
+        } else {
+
+            alert("Passwords need a number");
+            return false;
+        }
+
+        // Validate length
+        if(document.getElementById("password").value.length >= 8) {
+
+        } else {
+
+            alert("Passwords need to be higher than 8 characters");
+            return false;
+
+        }
+
 
 
     }

@@ -13,7 +13,7 @@ class likeController extends Controller
 
     public function sign()
     {
-        if (empty(Session::get('user_id'))){
+        if (empty(Session::get('user_id'))) {
             return redirect('/SignIn');
         }
 
@@ -27,14 +27,25 @@ class likeController extends Controller
         return redirect('/incoming');
     }
 
-    public function export(){
+    public function download($ev)
+    {
+        $inscriptions = Participate::where('id_events', $ev)->get();
+        $utilisateurs = User::all();
+        foreach ($utilisateurs as $utilisateur) {
+            foreach ($inscriptions as $inscription) {
+                if ($utilisateur->id == $inscription->id) {
+                    $listes[] = array("{$utilisateur -> id_users}");
+                }
+            }
+        }
 
-        $list = array ($id_events, $id_users);
-        $fp = fopen("export.csv", "w");
-        foreach($list as $fields):
-         fputcsv($fp, $fields);
-         endforeach;
-        fclose($fp);
+        $fichier = 'inscrit' . $ev . '.csv';
+        $delimiteur = ';';
+        $fichier_csv = fopen($fichier, 'w+');
+        foreach ($listes as $liste) {
+            fputcsv($fichier_csv, $liste, $delimiteur);
+
+        }
+
     }
-
 }
