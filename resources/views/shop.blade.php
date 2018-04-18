@@ -13,31 +13,32 @@
 
 @include("layouts.Header")
 
-<h1>Products</h1>
-<div class="container">
-<a href="/shop/cart">CART</a>
+<h1><mark>Products</mark></h1>
+
+<div class="button_cart" id="button_cart">
+<button type="button" class="btn" id="Cart"><a href="/shop/cart">CART</a></button>
 </div>
 
-<h2>Sort by type :</h2>
+<div id="title">
+    <h2>Sort by type :</h2>
+</div>
 
-<div class="container" id="select">
-
+<div id="Select">
     <select class="selectpicker" id="type-selector">
         <option value="none">None</option>
         @foreach($types as $type)
             <option value="{{$type}}">{{$type}}</option>
         @endforeach
     </select>
-
 </div>
 
-@if($add = true)
-    <div>
-        <a href="/shop/add">Add a new product</a>
-    </div>
+<div id="Add">
+@if($add == true)
+    <a href="/shop/add"><h2>Add a new product</h2></a>
 @endif
+</div>
 
-<div class="container" id="price">
+<div class="col-md-11" id="price">
     <form>
         Maximum price : <input title="max"id="max">
     </form>

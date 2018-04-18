@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/','UserController@home');
+Route::get('/',function(){
+    return view('/home');
+});
 
 Route::get('/galerie', function() {
     return redirect('/galerie'); });
@@ -106,6 +108,8 @@ Route::get('/done', 'EventController@past');
 Route::get('/events', function (){
     return view('Events');
 });
+
+Route::get('/events', 'likeController@download');
 
 Route::get('/postEvent', 'postEventController@get');
 Route::post('/postEvent', 'postEventController@post');

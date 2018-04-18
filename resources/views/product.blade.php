@@ -12,11 +12,11 @@
 <body>
 @include("layouts.Header")
 
-<div>
+<div class="col-md-6">
     <a href="/shop">Back</a>
 </div>
 
-<div>
+<div class="button-outline">
     <a href="/shop/cart">CART</a>
 </div>
 
