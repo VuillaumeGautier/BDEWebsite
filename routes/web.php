@@ -119,4 +119,4 @@ Route::post('/ideabox', 'IdeaController@propose');
 
 Route::post('/events/signup', 'likeController@sign');
 
-Route::post('/events/signup', 'likeController@sign');
+Route::post('/idea/vote', 'IdeaController@vote');
