@@ -67,7 +67,7 @@ class EventController extends Controller
 
             }
 
-            return view('events', array('events' => $past_event));
+            return view('PastEvents', array('events' => $past_event));
         }
     }
 }

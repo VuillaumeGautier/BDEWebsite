@@ -15,7 +15,7 @@ class IdeaController extends Controller{
 
     function propose()
 {
-    if (empty($_SESSION['user_id'])){
+    if (empty(Session::get('user_id'))){
         return redirect('/SignUp');
     }
 
