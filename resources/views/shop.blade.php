@@ -16,7 +16,7 @@
 <h1><mark>Products</mark></h1>
 
 <div class="button_cart" id="button_cart">
-<button type="button" class="btn" id="Cart"><a href="/shop/cart">CART</a></button>
+    <button type="button" class="btn" id="Cart"><a href="/shop/cart">CART</a></button>
 </div>
 
 <div id="title">
@@ -33,9 +33,9 @@
 </div>
 
 <div id="Add">
-@if($add == true)
-    <a href="/shop/add"><h2>Add a new product</h2></a>
-@endif
+    @if($add == true)
+        <a href="/shop/add"><h2>Add a new product</h2></a>
+    @endif
 </div>
 
 <div class="col-md-11" id="price">
@@ -54,7 +54,7 @@
 </body>
 </html>
 
- 
+
 <script>
     $( document ).ready(function() {
 
