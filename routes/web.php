@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/','UserController@home');
+Route::get('/',function(){
+    return view('/home');
+});
+
+
 
 Route::get('/galerie', function() {
     return redirect('/galerie'); });

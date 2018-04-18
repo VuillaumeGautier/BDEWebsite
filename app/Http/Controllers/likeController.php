@@ -27,9 +27,9 @@ class likeController extends Controller
         return redirect('/incoming');
     }
 
-    public function download($ev)
+    public function download()
     {
-        $inscriptions = Participate::where('id_events', $ev)->get();
+        $inscriptions = Participate::where('id_events', $_POST['event'])->get();
         $utilisateurs = User::all();
         foreach ($utilisateurs as $utilisateur) {
             foreach ($inscriptions as $inscription) {
@@ -39,7 +39,7 @@ class likeController extends Controller
             }
         }
 
-        $fichier = 'inscrit' . $ev . '.csv';
+        $fichier = 'inscrit' . $_POST['event'] . '.csv';
         $delimiteur = ';';
         $fichier_csv = fopen($fichier, 'w+');
         foreach ($listes as $liste) {

@@ -34,8 +34,22 @@
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Delete</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span> Download List</a></li>
-                                }
+
+                                <form action="/getUserEvent" method="post">
+
+
+                                    <input type="text" class="form-control" name="event" id="event"  placeholder="Confirm your Password"/>
+
+
+                                    <button id="button" type="submit" class="btn btn-primary">
+                                        {{ __('Dowload') }}
+                                    </button>
+
+
+
+                                </form>
+
+
                                 @endif
                             </ul>
                         </div>
